@@ -1,0 +1,5 @@
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\BLL.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\BLL.pdb
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\obj\Debug\BLL.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\obj\Debug\BLL.pdb

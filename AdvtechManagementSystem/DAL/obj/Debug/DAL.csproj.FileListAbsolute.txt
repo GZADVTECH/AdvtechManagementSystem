@@ -1,0 +1,5 @@
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DAL\bin\Debug\DAL.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DAL\bin\Debug\DAL.pdb
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DAL\obj\Debug\DAL.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DAL\obj\Debug\DAL.pdb

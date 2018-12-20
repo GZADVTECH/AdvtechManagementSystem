@@ -86,6 +86,7 @@
             this.llForget.TabIndex = 4;
             this.llForget.TabStop = true;
             this.llForget.Text = "修改密码？";
+            this.llForget.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llForget_LinkClicked);
             // 
             // frmLogin
             // 

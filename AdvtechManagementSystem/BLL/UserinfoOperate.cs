@@ -36,6 +36,7 @@ namespace BLL
                 userinfo.username = dt.Rows[0]["username"].ToString();
                 userinfo.usergender = Convert.ToBoolean(dt.Rows[0]["usergender"]);
                 userinfo.userremark = dt.Rows[0]["userremark"].ToString();
+                userinfo.userpower=Convert.ToInt32(dt.Rows[0]["userpower"]);
                 return true;
             }
             return false;

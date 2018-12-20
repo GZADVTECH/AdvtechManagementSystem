@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using BLL;
+using MODEL;
 
 namespace AdvtechManagementSystem
 {
@@ -93,9 +94,17 @@ namespace AdvtechManagementSystem
                     }
                 }
                 //进入主界面
-                //进入主界面进入主界面
-                //进入主界面进入主界面进入主界面
-                //进入主界面进入主界面进入主界面进入主界面
+                switch (userinfo.userpower)
+                {
+                    case 1:break;
+                    case 2:break;
+                    case 3:break;
+                    case 4:break;
+                    default:
+                        MessageBox.Show("无任何权限，请向最高管理员申请。", "系统提示");
+                        Errorinfo.errorPost("无权限者试图登录");
+                        break;
+                }
                 this.Hide();
             }
             else
@@ -104,6 +113,16 @@ namespace AdvtechManagementSystem
                 txtPwd.SelectAll();
                 return;
             }
+        }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void llForget_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmForgetPassword forget = new frmForgetPassword();
+            forget.ShowDialog();
         }
     }
 }

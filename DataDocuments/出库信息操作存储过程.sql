@@ -2,7 +2,8 @@
 drop proc pro_insert_delivery
 go
 create procedure pro_insert_delivery
-@deluserid int,
+@deluserid int=null,
+@delcargo int=null,
 @delamount int=null,
 @delprice money=null,
 @deltotalprice money=null,
@@ -11,7 +12,9 @@ create procedure pro_insert_delivery
 @delstatus bit=0
 as
 begin
-insert into delivery values(@deluserid,@delamount,@delprice,@deltotalprice,@deltime,@delremark,@delstatus)
+insert into delivery values(@deluserid,@delcargo,@delamount,@delprice,@deltotalprice,@deltime,@delremark,@delstatus)
+if(@@ERROR=0)
+insert into cargoinount values(@delcargo,@delamount,GETDATE(),'³ö¿â')
 end
 go
 
@@ -21,6 +24,7 @@ go
 create procedure pro_update_delivery
 @delid int,
 @deluserid int=null,
+@delcargo int=null,
 @delamount int=null,
 @delprice money=null,
 @deltotalprice money=null,
@@ -30,6 +34,8 @@ as
 begin
 if(@deluserid is not null)
 update delivery set deluserid=@deluserid where delid=@delid
+if(@delcargo is not null)
+update delivery set delcargo=@delcargo where delid=@delid
 if(@delamount is not null)
 update delivery set delamount=@delamount where delid=@delid
 if(@delprice is not null)

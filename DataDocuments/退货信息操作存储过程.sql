@@ -3,13 +3,14 @@ drop proc pro_insert_rejected
 go
 create procedure pro_insert_rejected
 @rejname nvarchar(100),
-@rejreason nvarchar(255)=null,
-@rejtime datetime=null,
-@rejremark nvarchar(255)=null,
-@rejstatus bit=0
+@rejcargo int,
+@rejreason nvarchar(255),
+@rejtime datetime,
+@rejremark nvarchar(255),
+@rejstatus bit
 as
 begin
-insert into rejected values(@rejname,@rejreason,@rejtime,@rejremark,@rejstatus)
+insert into rejected values(@rejname,@rejcargo,@rejreason,@rejtime,@rejremark,@rejstatus)
 end
 go
 
@@ -18,14 +19,18 @@ drop proc pro_update_rejected
 go
 create procedure pro_update_rejected
 @rejid int,
-@rejname nvarchar(100),
+@rejname nvarchar(100)=null,
+@rejcargo int=null,
 @rejreason nvarchar(255)=null,
 @rejtime datetime=null,
-@rejremark nvarchar(255)=null
+@rejremark nvarchar(255)=null,
+@rejstatus bit=null
 as
 begin
 if(@rejname is not null)
 update rejected set rejname=@rejname where rejid=@rejid
+if(@rejcargo is not null)
+update rejected set rejcargo=@rejcargo where rejid=@rejid
 if(@rejreason is not null)
 update rejected set rejreason=@rejreason where rejid=@rejid
 if(@rejtime is not null)

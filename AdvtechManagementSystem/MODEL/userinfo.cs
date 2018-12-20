@@ -27,5 +27,9 @@ namespace MODEL
         /// 个人备注
         /// </summary>
         public static string userremark { get; set; }
+        /// <summary>
+        /// 用户权限
+        /// </summary>
+        public static int userpower { get; set; }
     }
 }

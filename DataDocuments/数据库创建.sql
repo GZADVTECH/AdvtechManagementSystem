@@ -13,6 +13,7 @@ go
 
 use DB_AdvtechManagementSystem
 go
+
 /*用户信息表（userinfo）
 员工编号，角色名称，密码，性别，出生日期，所属部门，职务，联系电话，地址，备注
 */
@@ -48,7 +49,7 @@ create table cargoinfo
 	cargopurchase money,
 	cargosale money,
 	cargoware nvarchar(20),
-	cargounit char,
+	cargounit char(2),
 	cargotime datetime,
 	cargoremark nvarchar(255),
 	caregostatus bit,
@@ -73,7 +74,7 @@ create table customerinfo
 )
 go
 /*入库信息表（warehousing）
-入库编号，进货员工编号，入库数量，入库单价，入库总值，入库时间，存入仓库，备注，状态
+入库编号，进货员工编号，入库产品编号，入库数量，入库单价，入库总值，入库时间，存入仓库，备注，状态
 */
 drop table warehousing
 go
@@ -81,6 +82,8 @@ create table warehousing
 (
 	wareid int primary key identity(1,1),
 	wareuserid int,
+	warecargo int,
+	warecount int,
 	wareprice money,
 	waretotalprice money,
 	waretime datetime,
@@ -91,7 +94,7 @@ create table warehousing
 )
 go
 /*出库信息表（delivery）
-出库编号，出货员工编号，出库数量，出库单价，出库总值，出库时间，备注，状态
+出库编号，出货员工编号，出库产品编号，出库数量，出库单价，出库总值，出库时间，备注，状态
 */
 drop table delivery
 go
@@ -99,6 +102,7 @@ create table delivery
 (
 	delid int primary key identity(1,1),
 	deluserid int,
+	delcargo int,
 	delamount int,
 	delprice money,
 	deltotalprice money,
@@ -109,7 +113,7 @@ create table delivery
 )
 go
 /*退货信息表（rejected）
-退货编号，退货公司名称，退货原因，退货时间，备注，状态
+退货编号，退货公司名称，退货产品编号，退货原因，退货时间，备注，状态
 */
 drop table rejected
 go
@@ -117,6 +121,7 @@ create table rejected
 (
 	rejid int primary key identity(1,1),
 	rejname nvarchar(100),
+	rejcargo int,
 	rejreason nvarchar(255),
 	rejtime datetime,
 	rejremark nvarchar(255),
@@ -182,10 +187,37 @@ drop table serial
 go
 create table serial
 (
-	serid int primary key identity(1,1),
+	serid int primary key,
 	sersnid nvarchar(30),
 	serstatus bit,
 	serremark nvarchar(255),
+
+)
+go
+/*货物进出信息表（cargoinout）
+货物产品编号，货物数量，进出时间，备注
+*/
+drop table cargoinout
+go
+create table cargoinout
+(
+	cioid int,
+	cioamount int,
+	ciotime datetime,
+	cioremark nvarchar(255),
+
+)
+go
+/*序列号记录表（serialrecord）
+序列号，状态，记录时间
+*/
+drop table serialrecord
+go
+create table serialrecord
+(
+	srserial nvarchar(30),
+	srstatus nvarchar(20),
+	srtime datetime,
 
 )
 go

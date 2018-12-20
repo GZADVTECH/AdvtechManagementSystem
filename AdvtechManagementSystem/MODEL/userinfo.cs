@@ -9,23 +9,23 @@ namespace MODEL
     /// <summary>
     /// 个人用户信息
     /// </summary>
-    public class userinfo
+    public static class userinfo
     {
         /// <summary>
         /// 个人用户ID
         /// </summary>
-        public int userid { get; set; }
+        public static string userid { get; set; }
         /// <summary>
         /// 个人用户名
         /// </summary>
-        public string username { get; set; }
+        public static string username { get; set; }
         /// <summary>
         /// 个人用户性别
         /// </summary>
-        public bool usergender { get; set; }
+        public static bool usergender { get; set; }
         /// <summary>
         /// 个人备注
         /// </summary>
-        public string userremark { get; set; }
+        public static string userremark { get; set; }
     }
 }

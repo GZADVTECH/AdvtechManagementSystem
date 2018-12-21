@@ -22,7 +22,7 @@ namespace BLL
             return t2;
         }
         /// <summary>
-        /// 32为MD5加密
+        /// 32位MD5加密
         /// </summary>
         /// <param name="password"></param>
         /// <returns></returns>

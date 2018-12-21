@@ -60,5 +60,52 @@ namespace BLL
             else
                 return false;
         }
+        /// <summary>
+        /// 查询所有的用户信息
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable selectUserinfo()
+        {
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "select * from view_userinfo", null, CommandType.Text);
+            return dt;
+        }
+        /// <summary>
+        /// 通过查询条件查询用户信息
+        /// </summary>
+        /// <param name="select"></param>
+        /// <returns></returns>
+        public static DataTable selectUserinfo(string select)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@selcttext",select)
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_select_userinfo", param, CommandType.StoredProcedure);
+            return dt;
+        }
+        /// <summary>
+        /// 初始化用户信息
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        public static DataTable initializeUserinfo(int userid)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@userid",userid),
+                new SqlParameter("@userpwd",MD5Encrypt.MD5Encrypt32("123456")),
+                new SqlParameter("@usergender",0),
+                new SqlParameter("@userbirth",""),
+                new SqlParameter("@userdepart",""),
+                new SqlParameter("@userpost",""),
+                new SqlParameter("@usercontact",""),
+                new SqlParameter("@useraddress",""),
+                new SqlParameter("@userremark",""),
+                new SqlParameter("@userstatus",1),
+                new SqlParameter("@userpower",0)
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_update_userinfo", param, CommandType.StoredProcedure);
+            return dt;
+        }
     }
 }

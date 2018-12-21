@@ -50,7 +50,7 @@
             // txtName
             // 
             this.txtName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txtName.Location = new System.Drawing.Point(74, 120);
             this.txtName.MaxLength = 20;
             this.txtName.Name = "txtName";

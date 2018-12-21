@@ -32,7 +32,7 @@ namespace AdvtechManagementSystem
             {
                 StreamReader sr = new StreamReader(path, true);//创建文件读取流
                 string str = sr.ReadLine();//读取文件流数据
-                while (str!=null)
+                while (str != null)
                 {
                     if (!this.txtName.AutoCompleteCustomSource.Contains(str))
                         this.txtName.AutoCompleteCustomSource.Add(str);
@@ -75,7 +75,6 @@ namespace AdvtechManagementSystem
                 return;
             if (ValidateType.NullOrEmptyOfString(txtPwd.Text, "密码"))
                 return;
-
             //验证是否存在该账号及密码是否一致
             if (UserinfoOperate.validateUserinfo(txtName.Text, txtPwd.Text))
             {
@@ -96,16 +95,16 @@ namespace AdvtechManagementSystem
                 //进入主界面
                 switch (userinfo.userpower)
                 {
-                    case 1:break;
-                    case 2:break;
-                    case 3:break;
-                    case 4:break;
+                    case 1:frmManage manage = new frmManage();manage.Show(); break;
+                    case 2:frmWarehouse warehouse = new frmWarehouse();warehouse.Show(); break;
+                    case 3:frmPurchase purchase = new frmPurchase();purchase.Show(); break;
+                    case 4: break;
                     default:
                         MessageBox.Show("无任何权限，请向最高管理员申请。", "系统提示");
                         Errorinfo.errorPost("无权限者试图登录");
                         break;
                 }
-                this.Hide();
+                this.Close();
             }
             else
             {

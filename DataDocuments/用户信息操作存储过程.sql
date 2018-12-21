@@ -18,7 +18,8 @@ begin
 insert into userinfo values(@username, @userpwd, @usergender, @userbirth, @userdepart, @userpost, @usercontact, @useraddress, @userremark,@userstatus,@userpower)
 end
 go
-
+exec pro_insert_userinfo '吴守文','E1ADC3949BA59ABBE56E057F2F883E',0,'1987-08-01','管理部','总经理','13049827283','广州市天河区壬丰大厦2211A室','',1,1
+go
 --用户信息更改信息
 drop proc pro_update_userinfo
 go

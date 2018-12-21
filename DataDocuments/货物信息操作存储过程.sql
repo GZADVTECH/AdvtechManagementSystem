@@ -22,7 +22,7 @@ go
 drop proc pro_update_cargoinfo
 go
 create procedure pro_update_cargoinfo
-@cargoid int,
+@cargoid nvarchar(20),
 @cargoname nvarchar(50)=null,
 @cargomodal nvarchar(50)=null,
 @cargoamount int=null,
@@ -59,7 +59,7 @@ go
 drop proc pro_delete_cargoinfo
 go
 create procedure pro_delete_cargoinfo
-@cargoid int
+@cargoid nvarchar(20)
 as
 begin
 update cargoinfo set caregostatus=0 where cargoid=@cargoid

@@ -15,7 +15,7 @@ use DB_AdvtechManagementSystem
 go
 
 /*用户信息表（userinfo）
-员工编号，角色名称，密码，性别，出生日期，所属部门，职务，联系电话，地址，备注
+员工编号，角色名称，密码，性别，出生日期，所属部门，职务，联系电话，地址，备注，权限
 */
 drop table userinfo
 go
@@ -32,6 +32,7 @@ create table userinfo
 	useraddress nvarchar(255),
 	userremark nvarchar(255),
 	userstatus bit,
+	userpower int,
 
 )
 go
@@ -42,7 +43,7 @@ drop table cargoinfo
 go
 create table cargoinfo
 (
-	cargoid int primary key identity(1,1),
+	cargoid nvarchar(20),
 	cargoname nvarchar(50),
 	cargomodal nvarchar(50),
 	cargoamount int,
@@ -218,6 +219,20 @@ create table serialrecord
 	srserial nvarchar(30),
 	srstatus nvarchar(20),
 	srtime datetime,
+
+)
+go
+
+/*错误报告表（errorinfo）
+错误编号，错误信息，发生时间
+*/
+drop table errorinfo
+go
+create table errorinfo
+(
+	errorid int primary key identity(1,1),
+	errormsg nvarchar(max),
+	errortime datetime,
 
 )
 go

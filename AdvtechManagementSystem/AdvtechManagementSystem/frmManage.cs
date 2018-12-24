@@ -26,5 +26,16 @@ namespace AdvtechManagementSystem
         {
             Application.Exit();
         }
+        /// <summary>
+        /// 用户管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbUserinfo_Click(object sender, EventArgs e)
+        {
+            frmUsermanage usermanage = new frmUsermanage();
+            usermanage.MdiParent = this;
+            usermanage.Show();
+        }
     }
 }

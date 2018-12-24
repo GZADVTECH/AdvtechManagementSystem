@@ -182,7 +182,7 @@ create table finance
 go
 
 /*序列号表（serial）
-货物编号，序列号，状态，备注，状态
+货物编号，序列号，状态，备注
 */
 drop table serial
 go

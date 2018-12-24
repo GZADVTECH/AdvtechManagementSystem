@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManage));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.tsmanage = new System.Windows.Forms.ToolStrip();
+            this.tsbUserinfo = new System.Windows.Forms.ToolStripButton();
+            this.tsbReport = new System.Windows.Forms.ToolStripButton();
+            this.tsbRequest = new System.Windows.Forms.ToolStripButton();
+            this.tsmanage.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -45,41 +45,42 @@
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStrip1
+            // tsmanage
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1201, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsmanage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbUserinfo,
+            this.tsbReport,
+            this.tsbRequest});
+            this.tsmanage.Location = new System.Drawing.Point(0, 0);
+            this.tsmanage.Name = "tsmanage";
+            this.tsmanage.Size = new System.Drawing.Size(1201, 25);
+            this.tsmanage.TabIndex = 2;
+            this.tsmanage.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsbUserinfo
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton1.Text = "用户管理";
+            this.tsbUserinfo.Image = ((System.Drawing.Image)(resources.GetObject("tsbUserinfo.Image")));
+            this.tsbUserinfo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbUserinfo.Name = "tsbUserinfo";
+            this.tsbUserinfo.Size = new System.Drawing.Size(76, 22);
+            this.tsbUserinfo.Text = "用户管理";
+            this.tsbUserinfo.Click += new System.EventHandler(this.tsbUserinfo_Click);
             // 
-            // toolStripButton2
+            // tsbReport
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton2.Text = "报表查看";
+            this.tsbReport.Image = ((System.Drawing.Image)(resources.GetObject("tsbReport.Image")));
+            this.tsbReport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbReport.Name = "tsbReport";
+            this.tsbReport.Size = new System.Drawing.Size(76, 22);
+            this.tsbReport.Text = "报表查看";
             // 
-            // toolStripButton3
+            // tsbRequest
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton3.Text = "请求审核";
+            this.tsbRequest.Image = ((System.Drawing.Image)(resources.GetObject("tsbRequest.Image")));
+            this.tsbRequest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRequest.Name = "tsbRequest";
+            this.tsbRequest.Size = new System.Drawing.Size(76, 22);
+            this.tsbRequest.Text = "请求审核";
             // 
             // frmManage
             // 
@@ -88,7 +89,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1201, 755);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsmanage);
             this.Controls.Add(this.statusStrip1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -98,8 +99,8 @@
             this.Name = "frmManage";
             this.Text = "管理";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmManage_FormClosed);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsmanage.ResumeLayout(false);
+            this.tsmanage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,9 +109,9 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStrip tsmanage;
+        private System.Windows.Forms.ToolStripButton tsbUserinfo;
+        private System.Windows.Forms.ToolStripButton tsbReport;
+        private System.Windows.Forms.ToolStripButton tsbRequest;
     }
 }

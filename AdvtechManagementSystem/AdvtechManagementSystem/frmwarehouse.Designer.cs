@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWarehouse));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.tsWarehouse = new System.Windows.Forms.ToolStrip();
+            this.tsbIn = new System.Windows.Forms.ToolStripButton();
+            this.tsbOut = new System.Windows.Forms.ToolStripButton();
+            this.tsbStock = new System.Windows.Forms.ToolStripButton();
+            this.tsWarehouse.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -45,41 +45,41 @@
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStrip1
+            // tsWarehouse
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1162, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsWarehouse.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbIn,
+            this.tsbOut,
+            this.tsbStock});
+            this.tsWarehouse.Location = new System.Drawing.Point(0, 0);
+            this.tsWarehouse.Name = "tsWarehouse";
+            this.tsWarehouse.Size = new System.Drawing.Size(1162, 25);
+            this.tsWarehouse.TabIndex = 1;
+            this.tsWarehouse.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsbIn
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton1.Text = "入库管理";
+            this.tsbIn.Image = ((System.Drawing.Image)(resources.GetObject("tsbIn.Image")));
+            this.tsbIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbIn.Name = "tsbIn";
+            this.tsbIn.Size = new System.Drawing.Size(76, 22);
+            this.tsbIn.Text = "入库管理";
             // 
-            // toolStripButton2
+            // tsbOut
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton2.Text = "出库管理";
+            this.tsbOut.Image = ((System.Drawing.Image)(resources.GetObject("tsbOut.Image")));
+            this.tsbOut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbOut.Name = "tsbOut";
+            this.tsbOut.Size = new System.Drawing.Size(76, 22);
+            this.tsbOut.Text = "出库管理";
             // 
-            // toolStripButton3
+            // tsbStock
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton3.Text = "库存管理";
+            this.tsbStock.Image = ((System.Drawing.Image)(resources.GetObject("tsbStock.Image")));
+            this.tsbStock.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbStock.Name = "tsbStock";
+            this.tsbStock.Size = new System.Drawing.Size(76, 22);
+            this.tsbStock.Text = "库存管理";
             // 
             // frmWarehouse
             // 
@@ -88,7 +88,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1162, 743);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsWarehouse);
             this.Controls.Add(this.statusStrip1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -98,8 +98,8 @@
             this.Name = "frmWarehouse";
             this.Text = "仓库管理";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmWarehouse_FormClosed);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsWarehouse.ResumeLayout(false);
+            this.tsWarehouse.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,9 +108,9 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStrip tsWarehouse;
+        private System.Windows.Forms.ToolStripButton tsbIn;
+        private System.Windows.Forms.ToolStripButton tsbOut;
+        private System.Windows.Forms.ToolStripButton tsbStock;
     }
 }

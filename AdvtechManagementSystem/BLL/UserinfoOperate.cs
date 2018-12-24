@@ -94,7 +94,7 @@ namespace BLL
             {
                 new SqlParameter("@userid",userid),
                 new SqlParameter("@userpwd",MD5Encrypt.MD5Encrypt32("123456")),
-                new SqlParameter("@usergender",0),
+                new SqlParameter("@usergender",false),
                 new SqlParameter("@userbirth",""),
                 new SqlParameter("@userdepart",""),
                 new SqlParameter("@userpost",""),
@@ -102,9 +102,69 @@ namespace BLL
                 new SqlParameter("@useraddress",""),
                 new SqlParameter("@userremark",""),
                 new SqlParameter("@userstatus",1),
-                new SqlParameter("@userpower",0)
+                new SqlParameter("@userpower","0")
             };
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_update_userinfo", param, CommandType.StoredProcedure);
+            return dt;
+        }
+        /// <summary>
+        /// 添加用户信息
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable insertUserinfo(Dictionary<string,object> data)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@username",data["username"]),
+                new SqlParameter("@userpwd",MD5Encrypt.MD5Encrypt32("123456")),
+                new SqlParameter("@usergender",data["usergender"]),
+                new SqlParameter("@userbirth",data["userbirth"]),
+                new SqlParameter("@userdepart",data["userdepart"]),
+                new SqlParameter("@userpost",data["userpost"]),
+                new SqlParameter("@usercontact",data["usercontact"]),
+                new SqlParameter("@useraddress",data["useraddress"]),
+                new SqlParameter("@userremark",data["userremark"]),
+                new SqlParameter("@userpower",data["userpower"])
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_userinfo", param, CommandType.StoredProcedure);
+            return dt;
+        }
+        /// <summary>
+        /// 修改用户信息
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable updateUserinfo(Dictionary<string,object> data)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@userid",data["userid"]),
+                new SqlParameter("@username",data["username"]),
+                new SqlParameter("@usergender",data["usergender"]),
+                new SqlParameter("@userbirth",data["userbirth"]),
+                new SqlParameter("@userdepart",data["userdepart"]),
+                new SqlParameter("@userpost",data["userpost"]),
+                new SqlParameter("@usercontact",data["usercontact"]),
+                new SqlParameter("@useraddress",data["useraddress"]),
+                new SqlParameter("@userremark",data["userremark"]),
+                new SqlParameter("@userpower",data["userpower"])
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_update_userinfo", param, CommandType.StoredProcedure);
+            return dt;
+        }
+        /// <summary>
+        /// 删除用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static DataTable deleteUserinfo(object id)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@userid",id)
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_delete_userinfo", param, CommandType.StoredProcedure);
             return dt;
         }
     }

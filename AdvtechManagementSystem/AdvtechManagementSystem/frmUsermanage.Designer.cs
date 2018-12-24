@@ -42,25 +42,25 @@
             this.ssUser = new System.Windows.Forms.StatusStrip();
             this.tsslStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbUser = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.rdbBoy = new System.Windows.Forms.RadioButton();
-            this.rdbGirl = new System.Windows.Forms.RadioButton();
-            this.dtpBirth = new System.Windows.Forms.DateTimePicker();
-            this.cbbSection = new System.Windows.Forms.ComboBox();
-            this.cbbJob = new System.Windows.Forms.ComboBox();
-            this.cbbLevel = new System.Windows.Forms.ComboBox();
-            this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.rtbRemark = new System.Windows.Forms.RichTextBox();
+            this.rtbAddress = new System.Windows.Forms.RichTextBox();
+            this.cbbLevel = new System.Windows.Forms.ComboBox();
+            this.cbbJob = new System.Windows.Forms.ComboBox();
+            this.cbbSection = new System.Windows.Forms.ComboBox();
+            this.dtpBirth = new System.Windows.Forms.DateTimePicker();
+            this.rdbGirl = new System.Windows.Forms.RadioButton();
+            this.rdbBoy = new System.Windows.Forms.RadioButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tsUserinfo.SuspendLayout();
             this.ssUser.SuspendLayout();
             this.gbUser.SuspendLayout();
@@ -110,6 +110,7 @@
             this.lbUser.Size = new System.Drawing.Size(120, 316);
             this.lbUser.TabIndex = 1;
             this.lbUser.SelectedValueChanged += new System.EventHandler(this.lbUser_SelectedValueChanged);
+            this.lbUser.DoubleClick += new System.EventHandler(this.lbUser_DoubleClick);
             // 
             // rtbUser
             // 
@@ -138,6 +139,7 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "添加";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnChange
             // 
@@ -147,6 +149,7 @@
             this.btnChange.TabIndex = 6;
             this.btnChange.Text = "修改";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnDelete
             // 
@@ -156,6 +159,7 @@
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "删除";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ssUser
             // 
@@ -201,162 +205,21 @@
             this.gbUser.TabStop = false;
             this.gbUser.Text = "用户信息";
             // 
-            // label1
+            // rtbRemark
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "用户名";
+            this.rtbRemark.Location = new System.Drawing.Point(279, 123);
+            this.rtbRemark.Name = "rtbRemark";
+            this.rtbRemark.Size = new System.Drawing.Size(214, 125);
+            this.rtbRemark.TabIndex = 10;
+            this.rtbRemark.Text = "";
             // 
-            // txtUsername
+            // rtbAddress
             // 
-            this.txtUsername.Location = new System.Drawing.Point(84, 25);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(121, 21);
-            this.txtUsername.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "性别";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "出生日期";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "所属部门";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "职务";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 193);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "联系电话";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(84, 190);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(121, 21);
-            this.txtPhone.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(220, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "联系地址";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(220, 127);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "备注";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 226);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "权限";
-            // 
-            // rdbBoy
-            // 
-            this.rdbBoy.AutoSize = true;
-            this.rdbBoy.Checked = true;
-            this.rdbBoy.Location = new System.Drawing.Point(103, 59);
-            this.rdbBoy.Name = "rdbBoy";
-            this.rdbBoy.Size = new System.Drawing.Size(35, 16);
-            this.rdbBoy.TabIndex = 2;
-            this.rdbBoy.TabStop = true;
-            this.rdbBoy.Text = "男";
-            this.rdbBoy.UseVisualStyleBackColor = true;
-            // 
-            // rdbGirl
-            // 
-            this.rdbGirl.AutoSize = true;
-            this.rdbGirl.Location = new System.Drawing.Point(144, 59);
-            this.rdbGirl.Name = "rdbGirl";
-            this.rdbGirl.Size = new System.Drawing.Size(35, 16);
-            this.rdbGirl.TabIndex = 3;
-            this.rdbGirl.Text = "女";
-            this.rdbGirl.UseVisualStyleBackColor = true;
-            // 
-            // dtpBirth
-            // 
-            this.dtpBirth.Location = new System.Drawing.Point(84, 88);
-            this.dtpBirth.Name = "dtpBirth";
-            this.dtpBirth.Size = new System.Drawing.Size(121, 21);
-            this.dtpBirth.TabIndex = 4;
-            // 
-            // cbbSection
-            // 
-            this.cbbSection.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbSection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbSection.FormattingEnabled = true;
-            this.cbbSection.Items.AddRange(new object[] {
-            "管理部",
-            "业务部",
-            "采购部",
-            "财务部",
-            "行政部",
-            "技术部",
-            "售后部",
-            "客服部"});
-            this.cbbSection.Location = new System.Drawing.Point(84, 123);
-            this.cbbSection.Name = "cbbSection";
-            this.cbbSection.Size = new System.Drawing.Size(121, 20);
-            this.cbbSection.TabIndex = 5;
-            // 
-            // cbbJob
-            // 
-            this.cbbJob.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbJob.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbJob.FormattingEnabled = true;
-            this.cbbJob.Items.AddRange(new object[] {
-            "总经理",
-            "经理",
-            "员工"});
-            this.cbbJob.Location = new System.Drawing.Point(84, 157);
-            this.cbbJob.Name = "cbbJob";
-            this.cbbJob.Size = new System.Drawing.Size(121, 20);
-            this.cbbJob.TabIndex = 6;
+            this.rtbAddress.Location = new System.Drawing.Point(279, 25);
+            this.rtbAddress.Name = "rtbAddress";
+            this.rtbAddress.Size = new System.Drawing.Size(214, 92);
+            this.rtbAddress.TabIndex = 9;
+            this.rtbAddress.Text = "";
             // 
             // cbbLevel
             // 
@@ -377,21 +240,163 @@
             this.cbbLevel.Size = new System.Drawing.Size(121, 20);
             this.cbbLevel.TabIndex = 8;
             // 
-            // rtbAddress
+            // cbbJob
             // 
-            this.rtbAddress.Location = new System.Drawing.Point(279, 25);
-            this.rtbAddress.Name = "rtbAddress";
-            this.rtbAddress.Size = new System.Drawing.Size(214, 92);
-            this.rtbAddress.TabIndex = 9;
-            this.rtbAddress.Text = "";
+            this.cbbJob.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbJob.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbJob.FormattingEnabled = true;
+            this.cbbJob.Items.AddRange(new object[] {
+            "总经理",
+            "经理",
+            "员工"});
+            this.cbbJob.Location = new System.Drawing.Point(84, 157);
+            this.cbbJob.Name = "cbbJob";
+            this.cbbJob.Size = new System.Drawing.Size(121, 20);
+            this.cbbJob.TabIndex = 6;
             // 
-            // rtbRemark
+            // cbbSection
             // 
-            this.rtbRemark.Location = new System.Drawing.Point(279, 123);
-            this.rtbRemark.Name = "rtbRemark";
-            this.rtbRemark.Size = new System.Drawing.Size(214, 125);
-            this.rtbRemark.TabIndex = 10;
-            this.rtbRemark.Text = "";
+            this.cbbSection.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbSection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbSection.FormattingEnabled = true;
+            this.cbbSection.Items.AddRange(new object[] {
+            "管理部",
+            "仓储部",
+            "业务部",
+            "采购部",
+            "财务部",
+            "行政部",
+            "技术部",
+            "售后部",
+            "客服部"});
+            this.cbbSection.Location = new System.Drawing.Point(84, 123);
+            this.cbbSection.Name = "cbbSection";
+            this.cbbSection.Size = new System.Drawing.Size(121, 20);
+            this.cbbSection.TabIndex = 5;
+            // 
+            // dtpBirth
+            // 
+            this.dtpBirth.Location = new System.Drawing.Point(84, 88);
+            this.dtpBirth.Name = "dtpBirth";
+            this.dtpBirth.Size = new System.Drawing.Size(121, 21);
+            this.dtpBirth.TabIndex = 4;
+            // 
+            // rdbGirl
+            // 
+            this.rdbGirl.AutoSize = true;
+            this.rdbGirl.Location = new System.Drawing.Point(144, 59);
+            this.rdbGirl.Name = "rdbGirl";
+            this.rdbGirl.Size = new System.Drawing.Size(35, 16);
+            this.rdbGirl.TabIndex = 3;
+            this.rdbGirl.Text = "女";
+            this.rdbGirl.UseVisualStyleBackColor = true;
+            // 
+            // rdbBoy
+            // 
+            this.rdbBoy.AutoSize = true;
+            this.rdbBoy.Checked = true;
+            this.rdbBoy.Location = new System.Drawing.Point(103, 59);
+            this.rdbBoy.Name = "rdbBoy";
+            this.rdbBoy.Size = new System.Drawing.Size(35, 16);
+            this.rdbBoy.TabIndex = 2;
+            this.rdbBoy.TabStop = true;
+            this.rdbBoy.Text = "男";
+            this.rdbBoy.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(25, 226);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "权限";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(220, 127);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "备注";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(220, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "联系地址";
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(84, 190);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(121, 21);
+            this.txtPhone.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 193);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "联系电话";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "职务";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "所属部门";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "出生日期";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "性别";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(84, 25);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(121, 21);
+            this.txtUsername.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "用户名";
             // 
             // frmUsermanage
             // 

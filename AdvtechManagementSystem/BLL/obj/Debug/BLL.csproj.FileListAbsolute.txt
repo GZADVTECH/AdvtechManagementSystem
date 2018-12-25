@@ -7,3 +7,4 @@ E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BL
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\MODEL.dll
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\DAL.pdb
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\MODEL.pdb
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\obj\Debug\BLL.csproj.ResolveComReference.cache

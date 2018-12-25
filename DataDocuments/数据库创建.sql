@@ -37,7 +37,7 @@ create table userinfo
 )
 go
 /*货物信息表（cargoinfo）
-货物编号，货物名称，型号，货物数量，采购价格，销售价格，存放仓库，存放单位，存放时间，备注
+货物编号，货物名称，型号，货物数量，采购价格，销售价格，存放仓库，存放单位，存放时间，备注，状态
 */
 drop table cargoinfo
 go
@@ -53,7 +53,7 @@ create table cargoinfo
 	cargounit char(2),
 	cargotime datetime,
 	cargoremark nvarchar(255),
-	caregostatus bit,
+	cargostatus bit,
 
 )
 go

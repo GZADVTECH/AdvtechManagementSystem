@@ -33,46 +33,52 @@
             this.tslStock = new System.Windows.Forms.ToolStripLabel();
             this.tstxtStock = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSelect = new System.Windows.Forms.ToolStripButton();
-            this.tsbInStock = new System.Windows.Forms.ToolStripButton();
             this.tssStock = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbInStock = new System.Windows.Forms.ToolStripButton();
             this.tsbOutStock = new System.Windows.Forms.ToolStripButton();
             this.lbStock = new System.Windows.Forms.ListBox();
             this.rtbStock = new System.Windows.Forms.RichTextBox();
             this.gbSNID = new System.Windows.Forms.GroupBox();
-            this.lStockName = new System.Windows.Forms.Label();
-            this.lStockModal = new System.Windows.Forms.Label();
-            this.txtStockName = new System.Windows.Forms.TextBox();
-            this.txtStockModal = new System.Windows.Forms.TextBox();
-            this.btnSNIn = new System.Windows.Forms.Button();
-            this.btnSNOut = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnSNSave = new System.Windows.Forms.Button();
             this.txtSNID = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lSNOut = new System.Windows.Forms.Label();
+            this.lSNIn = new System.Windows.Forms.Label();
+            this.lbSNOut = new System.Windows.Forms.ListBox();
+            this.lbSNIn = new System.Windows.Forms.ListBox();
+            this.btnSNOut = new System.Windows.Forms.Button();
+            this.btnSNIn = new System.Windows.Forms.Button();
+            this.txtStockModal = new System.Windows.Forms.TextBox();
+            this.txtStockName = new System.Windows.Forms.TextBox();
+            this.lStockModal = new System.Windows.Forms.Label();
+            this.lStockName = new System.Windows.Forms.Label();
             this.gbStock = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.rtbRemark = new System.Windows.Forms.RichTextBox();
+            this.txtUnit = new System.Windows.Forms.ComboBox();
+            this.cbbWare = new System.Windows.Forms.ComboBox();
+            this.txtSale = new System.Windows.Forms.TextBox();
+            this.txtPurchase = new System.Windows.Forms.TextBox();
+            this.nNum = new System.Windows.Forms.NumericUpDown();
+            this.lRemark = new System.Windows.Forms.Label();
+            this.lunit = new System.Windows.Forms.Label();
+            this.lWare = new System.Windows.Forms.Label();
+            this.txtModal = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lSale = new System.Windows.Forms.Label();
+            this.lPurchase = new System.Windows.Forms.Label();
+            this.lAmount = new System.Windows.Forms.Label();
+            this.lModal = new System.Windows.Forms.Label();
+            this.lName = new System.Windows.Forms.Label();
+            this.llUp = new System.Windows.Forms.LinkLabel();
+            this.llDown = new System.Windows.Forms.LinkLabel();
+            this.lPageNumber = new System.Windows.Forms.Label();
+            this.ssStatus = new System.Windows.Forms.StatusStrip();
+            this.tslStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStock.SuspendLayout();
             this.gbSNID.SuspendLayout();
             this.gbStock.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nNum)).BeginInit();
+            this.ssStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsStock
@@ -100,6 +106,8 @@
             // 
             this.tstxtStock.Name = "tstxtStock";
             this.tstxtStock.Size = new System.Drawing.Size(150, 25);
+            this.tstxtStock.Enter += new System.EventHandler(this.tstxtStock_Enter);
+            this.tstxtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tstxtStock_KeyPress);
             // 
             // tsbSelect
             // 
@@ -108,8 +116,13 @@
             this.tsbSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSelect.Name = "tsbSelect";
             this.tsbSelect.Size = new System.Drawing.Size(23, 22);
-            this.tsbSelect.Text = "toolStripButton1";
+            this.tsbSelect.Text = "输入关键字进行查询";
             this.tsbSelect.Click += new System.EventHandler(this.tsbSelect_Click);
+            // 
+            // tssStock
+            // 
+            this.tssStock.Name = "tssStock";
+            this.tssStock.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbInStock
             // 
@@ -118,11 +131,7 @@
             this.tsbInStock.Name = "tsbInStock";
             this.tsbInStock.Size = new System.Drawing.Size(105, 22);
             this.tsbInStock.Text = "库存Excel导入";
-            // 
-            // tssStock
-            // 
-            this.tssStock.Name = "tssStock";
-            this.tssStock.Size = new System.Drawing.Size(6, 25);
+            this.tsbInStock.Click += new System.EventHandler(this.tsbInStock_Click);
             // 
             // tsbOutStock
             // 
@@ -131,6 +140,7 @@
             this.tsbOutStock.Name = "tsbOutStock";
             this.tsbOutStock.Size = new System.Drawing.Size(105, 22);
             this.tsbOutStock.Text = "库存Excel导出";
+            this.tsbOutStock.Click += new System.EventHandler(this.tsbOutStock_Click);
             // 
             // lbStock
             // 
@@ -138,7 +148,7 @@
             this.lbStock.ItemHeight = 12;
             this.lbStock.Location = new System.Drawing.Point(13, 29);
             this.lbStock.Name = "lbStock";
-            this.lbStock.Size = new System.Drawing.Size(221, 580);
+            this.lbStock.Size = new System.Drawing.Size(221, 544);
             this.lbStock.TabIndex = 1;
             // 
             // rtbStock
@@ -151,12 +161,12 @@
             // 
             // gbSNID
             // 
-            this.gbSNID.Controls.Add(this.button1);
+            this.gbSNID.Controls.Add(this.btnSNSave);
             this.gbSNID.Controls.Add(this.txtSNID);
-            this.gbSNID.Controls.Add(this.label2);
-            this.gbSNID.Controls.Add(this.label1);
-            this.gbSNID.Controls.Add(this.listBox2);
-            this.gbSNID.Controls.Add(this.listBox1);
+            this.gbSNID.Controls.Add(this.lSNOut);
+            this.gbSNID.Controls.Add(this.lSNIn);
+            this.gbSNID.Controls.Add(this.lbSNOut);
+            this.gbSNID.Controls.Add(this.lbSNIn);
             this.gbSNID.Controls.Add(this.btnSNOut);
             this.gbSNID.Controls.Add(this.btnSNIn);
             this.gbSNID.Controls.Add(this.txtStockModal);
@@ -165,53 +175,62 @@
             this.gbSNID.Controls.Add(this.lStockName);
             this.gbSNID.Location = new System.Drawing.Point(511, 151);
             this.gbSNID.Name = "gbSNID";
-            this.gbSNID.Size = new System.Drawing.Size(250, 458);
+            this.gbSNID.Size = new System.Drawing.Size(250, 446);
             this.gbSNID.TabIndex = 3;
             this.gbSNID.TabStop = false;
             this.gbSNID.Text = "S/N码";
             // 
-            // lStockName
+            // btnSNSave
             // 
-            this.lStockName.AutoSize = true;
-            this.lStockName.Location = new System.Drawing.Point(13, 23);
-            this.lStockName.Name = "lStockName";
-            this.lStockName.Size = new System.Drawing.Size(41, 12);
-            this.lStockName.TabIndex = 0;
-            this.lStockName.Text = "名称：";
+            this.btnSNSave.Location = new System.Drawing.Point(87, 74);
+            this.btnSNSave.Name = "btnSNSave";
+            this.btnSNSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSNSave.TabIndex = 6;
+            this.btnSNSave.Text = "保存";
+            this.btnSNSave.UseVisualStyleBackColor = true;
             // 
-            // lStockModal
+            // txtSNID
             // 
-            this.lStockModal.AutoSize = true;
-            this.lStockModal.Location = new System.Drawing.Point(13, 50);
-            this.lStockModal.Name = "lStockModal";
-            this.lStockModal.Size = new System.Drawing.Size(41, 12);
-            this.lStockModal.TabIndex = 0;
-            this.lStockModal.Text = "型号：";
+            this.txtSNID.Location = new System.Drawing.Point(6, 413);
+            this.txtSNID.Name = "txtSNID";
+            this.txtSNID.Size = new System.Drawing.Size(237, 21);
+            this.txtSNID.TabIndex = 5;
             // 
-            // txtStockName
+            // lSNOut
             // 
-            this.txtStockName.Location = new System.Drawing.Point(60, 20);
-            this.txtStockName.Name = "txtStockName";
-            this.txtStockName.ReadOnly = true;
-            this.txtStockName.Size = new System.Drawing.Size(183, 21);
-            this.txtStockName.TabIndex = 1;
+            this.lSNOut.AutoSize = true;
+            this.lSNOut.Location = new System.Drawing.Point(128, 112);
+            this.lSNOut.Name = "lSNOut";
+            this.lSNOut.Size = new System.Drawing.Size(119, 12);
+            this.lSNOut.TabIndex = 4;
+            this.lSNOut.Text = "正在进行操作的S/N码";
             // 
-            // txtStockModal
+            // lSNIn
             // 
-            this.txtStockModal.Location = new System.Drawing.Point(60, 47);
-            this.txtStockModal.Name = "txtStockModal";
-            this.txtStockModal.ReadOnly = true;
-            this.txtStockModal.Size = new System.Drawing.Size(183, 21);
-            this.txtStockModal.TabIndex = 1;
+            this.lSNIn.AutoSize = true;
+            this.lSNIn.Location = new System.Drawing.Point(4, 112);
+            this.lSNIn.Name = "lSNIn";
+            this.lSNIn.Size = new System.Drawing.Size(83, 12);
+            this.lSNIn.TabIndex = 4;
+            this.lSNIn.Text = "已保存的S/N码";
             // 
-            // btnSNIn
+            // lbSNOut
             // 
-            this.btnSNIn.Location = new System.Drawing.Point(6, 74);
-            this.btnSNIn.Name = "btnSNIn";
-            this.btnSNIn.Size = new System.Drawing.Size(75, 23);
-            this.btnSNIn.TabIndex = 2;
-            this.btnSNIn.Text = "Excel导入";
-            this.btnSNIn.UseVisualStyleBackColor = true;
+            this.lbSNOut.FormattingEnabled = true;
+            this.lbSNOut.ItemHeight = 12;
+            this.lbSNOut.Location = new System.Drawing.Point(130, 127);
+            this.lbSNOut.Name = "lbSNOut";
+            this.lbSNOut.Size = new System.Drawing.Size(113, 268);
+            this.lbSNOut.TabIndex = 3;
+            // 
+            // lbSNIn
+            // 
+            this.lbSNIn.FormattingEnabled = true;
+            this.lbSNIn.ItemHeight = 12;
+            this.lbSNIn.Location = new System.Drawing.Point(6, 127);
+            this.lbSNIn.Name = "lbSNIn";
+            this.lbSNIn.Size = new System.Drawing.Size(113, 268);
+            this.lbSNIn.TabIndex = 3;
             // 
             // btnSNOut
             // 
@@ -222,229 +241,269 @@
             this.btnSNOut.Text = "Excel导出";
             this.btnSNOut.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // btnSNIn
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(6, 127);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(113, 292);
-            this.listBox1.TabIndex = 3;
+            this.btnSNIn.Location = new System.Drawing.Point(6, 74);
+            this.btnSNIn.Name = "btnSNIn";
+            this.btnSNIn.Size = new System.Drawing.Size(75, 23);
+            this.btnSNIn.TabIndex = 2;
+            this.btnSNIn.Text = "Excel导入";
+            this.btnSNIn.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // txtStockModal
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 12;
-            this.listBox2.Location = new System.Drawing.Point(130, 127);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(113, 292);
-            this.listBox2.TabIndex = 3;
+            this.txtStockModal.Location = new System.Drawing.Point(60, 47);
+            this.txtStockModal.Name = "txtStockModal";
+            this.txtStockModal.ReadOnly = true;
+            this.txtStockModal.Size = new System.Drawing.Size(183, 21);
+            this.txtStockModal.TabIndex = 1;
             // 
-            // label1
+            // txtStockName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 112);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 12);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "已保存的S/N码";
+            this.txtStockName.Location = new System.Drawing.Point(60, 20);
+            this.txtStockName.Name = "txtStockName";
+            this.txtStockName.ReadOnly = true;
+            this.txtStockName.Size = new System.Drawing.Size(183, 21);
+            this.txtStockName.TabIndex = 1;
             // 
-            // label2
+            // lStockModal
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 112);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "正在进行操作的S/N码";
+            this.lStockModal.AutoSize = true;
+            this.lStockModal.Location = new System.Drawing.Point(13, 50);
+            this.lStockModal.Name = "lStockModal";
+            this.lStockModal.Size = new System.Drawing.Size(41, 12);
+            this.lStockModal.TabIndex = 0;
+            this.lStockModal.Text = "型号：";
             // 
-            // txtSNID
+            // lStockName
             // 
-            this.txtSNID.Location = new System.Drawing.Point(6, 425);
-            this.txtSNID.Name = "txtSNID";
-            this.txtSNID.Size = new System.Drawing.Size(237, 21);
-            this.txtSNID.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(87, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "保存";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lStockName.AutoSize = true;
+            this.lStockName.Location = new System.Drawing.Point(13, 23);
+            this.lStockName.Name = "lStockName";
+            this.lStockName.Size = new System.Drawing.Size(41, 12);
+            this.lStockName.TabIndex = 0;
+            this.lStockName.Text = "名称：";
             // 
             // gbStock
             // 
-            this.gbStock.Controls.Add(this.button2);
-            this.gbStock.Controls.Add(this.richTextBox1);
-            this.gbStock.Controls.Add(this.comboBox2);
-            this.gbStock.Controls.Add(this.comboBox1);
-            this.gbStock.Controls.Add(this.textBox4);
-            this.gbStock.Controls.Add(this.textBox3);
-            this.gbStock.Controls.Add(this.numericUpDown1);
-            this.gbStock.Controls.Add(this.label10);
-            this.gbStock.Controls.Add(this.label9);
-            this.gbStock.Controls.Add(this.label8);
-            this.gbStock.Controls.Add(this.textBox2);
-            this.gbStock.Controls.Add(this.textBox1);
-            this.gbStock.Controls.Add(this.label7);
-            this.gbStock.Controls.Add(this.label6);
-            this.gbStock.Controls.Add(this.label5);
-            this.gbStock.Controls.Add(this.label4);
-            this.gbStock.Controls.Add(this.label3);
+            this.gbStock.Controls.Add(this.btnSave);
+            this.gbStock.Controls.Add(this.rtbRemark);
+            this.gbStock.Controls.Add(this.txtUnit);
+            this.gbStock.Controls.Add(this.cbbWare);
+            this.gbStock.Controls.Add(this.txtSale);
+            this.gbStock.Controls.Add(this.txtPurchase);
+            this.gbStock.Controls.Add(this.nNum);
+            this.gbStock.Controls.Add(this.lRemark);
+            this.gbStock.Controls.Add(this.lunit);
+            this.gbStock.Controls.Add(this.lWare);
+            this.gbStock.Controls.Add(this.txtModal);
+            this.gbStock.Controls.Add(this.txtName);
+            this.gbStock.Controls.Add(this.lSale);
+            this.gbStock.Controls.Add(this.lPurchase);
+            this.gbStock.Controls.Add(this.lAmount);
+            this.gbStock.Controls.Add(this.lModal);
+            this.gbStock.Controls.Add(this.lName);
             this.gbStock.Location = new System.Drawing.Point(240, 151);
             this.gbStock.Name = "gbStock";
-            this.gbStock.Size = new System.Drawing.Size(265, 457);
+            this.gbStock.Size = new System.Drawing.Size(265, 446);
             this.gbStock.TabIndex = 4;
             this.gbStock.TabStop = false;
             this.gbStock.Text = "相关信息";
             // 
-            // label3
+            // btnSave
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "名称：";
+            this.btnSave.Location = new System.Drawing.Point(184, 411);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "提交";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // rtbRemark
             // 
-            this.textBox1.Location = new System.Drawing.Point(79, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 21);
-            this.textBox1.TabIndex = 1;
+            this.rtbRemark.Location = new System.Drawing.Point(79, 223);
+            this.rtbRemark.Name = "rtbRemark";
+            this.rtbRemark.Size = new System.Drawing.Size(180, 176);
+            this.rtbRemark.TabIndex = 8;
+            this.rtbRemark.Text = "如需标注是否含税，请在此处填写（例:采购价格不含税，销售价格含税）";
             // 
-            // label4
+            // txtUnit
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "型号：";
+            this.txtUnit.FormattingEnabled = true;
+            this.txtUnit.Location = new System.Drawing.Point(210, 188);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(49, 20);
+            this.txtUnit.TabIndex = 7;
             // 
-            // textBox2
+            // cbbWare
             // 
-            this.textBox2.Location = new System.Drawing.Point(79, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 21);
-            this.textBox2.TabIndex = 2;
+            this.cbbWare.FormattingEnabled = true;
+            this.cbbWare.Location = new System.Drawing.Point(79, 188);
+            this.cbbWare.Name = "cbbWare";
+            this.cbbWare.Size = new System.Drawing.Size(78, 20);
+            this.cbbWare.TabIndex = 6;
             // 
-            // label5
+            // txtSale
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 89);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "数量：";
+            this.txtSale.Location = new System.Drawing.Point(79, 154);
+            this.txtSale.Name = "txtSale";
+            this.txtSale.Size = new System.Drawing.Size(180, 21);
+            this.txtSale.TabIndex = 5;
             // 
-            // label6
+            // txtPurchase
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 123);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "采购价格：";
+            this.txtPurchase.Location = new System.Drawing.Point(79, 120);
+            this.txtPurchase.Name = "txtPurchase";
+            this.txtPurchase.Size = new System.Drawing.Size(180, 21);
+            this.txtPurchase.TabIndex = 4;
             // 
-            // label7
+            // nNum
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 157);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "销售价格：";
+            this.nNum.Location = new System.Drawing.Point(79, 87);
+            this.nNum.Name = "nNum";
+            this.nNum.Size = new System.Drawing.Size(180, 21);
+            this.nNum.TabIndex = 3;
             // 
-            // label8
+            // lRemark
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 191);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "存放位置：";
+            this.lRemark.AutoSize = true;
+            this.lRemark.Location = new System.Drawing.Point(7, 226);
+            this.lRemark.Name = "lRemark";
+            this.lRemark.Size = new System.Drawing.Size(41, 12);
+            this.lRemark.TabIndex = 2;
+            this.lRemark.Text = "备注：";
             // 
-            // label9
+            // lunit
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(163, 191);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 12);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "单位：";
+            this.lunit.AutoSize = true;
+            this.lunit.Location = new System.Drawing.Point(163, 191);
+            this.lunit.Name = "lunit";
+            this.lunit.Size = new System.Drawing.Size(41, 12);
+            this.lunit.TabIndex = 2;
+            this.lunit.Text = "单位：";
             // 
-            // label10
+            // lWare
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 226);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 12);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "备注：";
+            this.lWare.AutoSize = true;
+            this.lWare.Location = new System.Drawing.Point(7, 191);
+            this.lWare.Name = "lWare";
+            this.lWare.Size = new System.Drawing.Size(65, 12);
+            this.lWare.TabIndex = 2;
+            this.lWare.Text = "存放位置：";
             // 
-            // numericUpDown1
+            // txtModal
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(79, 87);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(180, 21);
-            this.numericUpDown1.TabIndex = 3;
+            this.txtModal.Location = new System.Drawing.Point(79, 52);
+            this.txtModal.Name = "txtModal";
+            this.txtModal.Size = new System.Drawing.Size(180, 21);
+            this.txtModal.TabIndex = 2;
             // 
-            // textBox3
+            // txtName
             // 
-            this.textBox3.Location = new System.Drawing.Point(79, 120);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(180, 21);
-            this.textBox3.TabIndex = 4;
+            this.txtName.Location = new System.Drawing.Point(79, 18);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(180, 21);
+            this.txtName.TabIndex = 1;
             // 
-            // textBox4
+            // lSale
             // 
-            this.textBox4.Location = new System.Drawing.Point(79, 154);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(180, 21);
-            this.textBox4.TabIndex = 5;
+            this.lSale.AutoSize = true;
+            this.lSale.Location = new System.Drawing.Point(7, 157);
+            this.lSale.Name = "lSale";
+            this.lSale.Size = new System.Drawing.Size(65, 12);
+            this.lSale.TabIndex = 0;
+            this.lSale.Text = "销售价格：";
             // 
-            // comboBox1
+            // lPurchase
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(79, 188);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(78, 20);
-            this.comboBox1.TabIndex = 6;
+            this.lPurchase.AutoSize = true;
+            this.lPurchase.Location = new System.Drawing.Point(7, 123);
+            this.lPurchase.Name = "lPurchase";
+            this.lPurchase.Size = new System.Drawing.Size(65, 12);
+            this.lPurchase.TabIndex = 0;
+            this.lPurchase.Text = "采购价格：";
             // 
-            // comboBox2
+            // lAmount
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(210, 188);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(49, 20);
-            this.comboBox2.TabIndex = 7;
+            this.lAmount.AutoSize = true;
+            this.lAmount.Location = new System.Drawing.Point(7, 89);
+            this.lAmount.Name = "lAmount";
+            this.lAmount.Size = new System.Drawing.Size(41, 12);
+            this.lAmount.TabIndex = 0;
+            this.lAmount.Text = "数量：";
             // 
-            // richTextBox1
+            // lModal
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(79, 223);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(180, 194);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "如需标注是否含税，请在此处填写（例:采购价格不含税，销售价格含税）";
+            this.lModal.AutoSize = true;
+            this.lModal.Location = new System.Drawing.Point(7, 55);
+            this.lModal.Name = "lModal";
+            this.lModal.Size = new System.Drawing.Size(41, 12);
+            this.lModal.TabIndex = 0;
+            this.lModal.Text = "型号：";
             // 
-            // button2
+            // lName
             // 
-            this.button2.Location = new System.Drawing.Point(184, 423);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "提交";
-            this.button2.UseVisualStyleBackColor = true;
+            this.lName.AutoSize = true;
+            this.lName.Location = new System.Drawing.Point(7, 21);
+            this.lName.Name = "lName";
+            this.lName.Size = new System.Drawing.Size(41, 12);
+            this.lName.TabIndex = 0;
+            this.lName.Text = "名称：";
+            // 
+            // llUp
+            // 
+            this.llUp.AutoSize = true;
+            this.llUp.Location = new System.Drawing.Point(12, 579);
+            this.llUp.Name = "llUp";
+            this.llUp.Size = new System.Drawing.Size(41, 12);
+            this.llUp.TabIndex = 5;
+            this.llUp.TabStop = true;
+            this.llUp.Text = "上一页";
+            // 
+            // llDown
+            // 
+            this.llDown.AutoSize = true;
+            this.llDown.Location = new System.Drawing.Point(192, 579);
+            this.llDown.Name = "llDown";
+            this.llDown.Size = new System.Drawing.Size(41, 12);
+            this.llDown.TabIndex = 5;
+            this.llDown.TabStop = true;
+            this.llDown.Text = "下一页";
+            // 
+            // lPageNumber
+            // 
+            this.lPageNumber.AutoSize = true;
+            this.lPageNumber.Location = new System.Drawing.Point(95, 579);
+            this.lPageNumber.Name = "lPageNumber";
+            this.lPageNumber.Size = new System.Drawing.Size(47, 12);
+            this.lPageNumber.TabIndex = 6;
+            this.lPageNumber.Text = "100/100";
+            // 
+            // ssStatus
+            // 
+            this.ssStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslStatus});
+            this.ssStatus.Location = new System.Drawing.Point(0, 598);
+            this.ssStatus.Name = "ssStatus";
+            this.ssStatus.Size = new System.Drawing.Size(773, 22);
+            this.ssStatus.TabIndex = 7;
+            this.ssStatus.Text = "statusStrip1";
+            // 
+            // tslStatus
+            // 
+            this.tslStatus.Name = "tslStatus";
+            this.tslStatus.Size = new System.Drawing.Size(116, 17);
+            this.tslStatus.Text = "操作状态反馈。。。";
             // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 620);
+            this.Controls.Add(this.ssStatus);
+            this.Controls.Add(this.lPageNumber);
+            this.Controls.Add(this.llDown);
+            this.Controls.Add(this.llUp);
             this.Controls.Add(this.gbStock);
             this.Controls.Add(this.gbSNID);
             this.Controls.Add(this.rtbStock);
@@ -455,13 +514,16 @@
             this.MinimizeBox = false;
             this.Name = "frmStock";
             this.Text = "库存管理";
+            this.Load += new System.EventHandler(this.frmStock_Load);
             this.tsStock.ResumeLayout(false);
             this.tsStock.PerformLayout();
             this.gbSNID.ResumeLayout(false);
             this.gbSNID.PerformLayout();
             this.gbStock.ResumeLayout(false);
             this.gbStock.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nNum)).EndInit();
+            this.ssStatus.ResumeLayout(false);
+            this.ssStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,12 +541,12 @@
         private System.Windows.Forms.ListBox lbStock;
         private System.Windows.Forms.RichTextBox rtbStock;
         private System.Windows.Forms.GroupBox gbSNID;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSNSave;
         private System.Windows.Forms.TextBox txtSNID;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label lSNOut;
+        private System.Windows.Forms.Label lSNIn;
+        private System.Windows.Forms.ListBox lbSNOut;
+        private System.Windows.Forms.ListBox lbSNIn;
         private System.Windows.Forms.Button btnSNOut;
         private System.Windows.Forms.Button btnSNIn;
         private System.Windows.Forms.TextBox txtStockModal;
@@ -492,22 +554,27 @@
         private System.Windows.Forms.Label lStockModal;
         private System.Windows.Forms.Label lStockName;
         private System.Windows.Forms.GroupBox gbStock;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.RichTextBox rtbRemark;
+        private System.Windows.Forms.ComboBox txtUnit;
+        private System.Windows.Forms.ComboBox cbbWare;
+        private System.Windows.Forms.TextBox txtSale;
+        private System.Windows.Forms.TextBox txtPurchase;
+        private System.Windows.Forms.NumericUpDown nNum;
+        private System.Windows.Forms.Label lRemark;
+        private System.Windows.Forms.Label lunit;
+        private System.Windows.Forms.Label lWare;
+        private System.Windows.Forms.TextBox txtModal;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label lSale;
+        private System.Windows.Forms.Label lPurchase;
+        private System.Windows.Forms.Label lAmount;
+        private System.Windows.Forms.Label lModal;
+        private System.Windows.Forms.Label lName;
+        private System.Windows.Forms.LinkLabel llUp;
+        private System.Windows.Forms.LinkLabel llDown;
+        private System.Windows.Forms.Label lPageNumber;
+        private System.Windows.Forms.StatusStrip ssStatus;
+        private System.Windows.Forms.ToolStripStatusLabel tslStatus;
     }
 }

@@ -30,6 +30,9 @@ create procedure pro_select_userinfo
 @selcttext nvarchar(30)
 as
 begin
-select userid,username,usergender,userbirth,userdepart,userpost,usercontact,useraddress,userremark,userpower from userinfo where userid=@selcttext or username=@selcttext
+if(PATINDEX('%[^0-9]%', @selcttext)=0)
+select userid,username,usergender,userbirth,userdepart,userpost,usercontact,useraddress,userremark,userpower from userinfo where userid=@selcttext
+else
+select userid,username,usergender,userbirth,userdepart,userpost,usercontact,useraddress,userremark,userpower from userinfo where username like '%'+@selcttext+'%'
 end
 go

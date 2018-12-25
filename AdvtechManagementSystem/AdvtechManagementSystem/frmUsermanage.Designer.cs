@@ -89,6 +89,7 @@
             this.tstText.Name = "tstText";
             this.tstText.Size = new System.Drawing.Size(150, 25);
             this.tstText.Enter += new System.EventHandler(this.tstText_Enter);
+            this.tstText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tstText_KeyPress);
             // 
             // tsbSelect
             // 

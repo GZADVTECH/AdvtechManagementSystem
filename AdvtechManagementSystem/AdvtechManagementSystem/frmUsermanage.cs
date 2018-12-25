@@ -374,5 +374,17 @@ namespace AdvtechManagementSystem
                 Convert.ToInt32(dtc["userpower"]) == 4 ? "行政管理" : Convert.ToInt32(dtc["userpower"]) == 5 ? "技术管理" :
                 Convert.ToInt32(dtc["userpower"]) == 6 ? "售后管理" : Convert.ToInt32(dtc["userpower"]) == 7 ? "客服管理" : "其他权限");
         }
+        /// <summary>
+        /// 按下回车进行查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tstText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+            {
+                tsbSelect_Click(sender, e);
+            }
+        }
     }
 }

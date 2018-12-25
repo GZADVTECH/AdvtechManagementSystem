@@ -62,6 +62,6 @@ create procedure pro_delete_cargoinfo
 @cargoid nvarchar(20)
 as
 begin
-update cargoinfo set caregostatus=0 where cargoid=@cargoid
+update cargoinfo set cargostatus=0 where cargoid=@cargoid
 end
 go

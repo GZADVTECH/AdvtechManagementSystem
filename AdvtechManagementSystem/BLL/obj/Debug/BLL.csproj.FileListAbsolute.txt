@@ -8,3 +8,11 @@ E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BL
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\DAL.pdb
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\MODEL.pdb
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\obj\Debug\BLL.csproj.ResolveComReference.cache
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\BLL.dll.config
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\NPOI.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\NPOI.OOXML.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\NPOI.OpenXml4Net.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\NPOI.OpenXmlFormats.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\ICSharpCode.SharpZipLib.pdb
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\BLL\bin\Debug\ICSharpCode.SharpZipLib.xml

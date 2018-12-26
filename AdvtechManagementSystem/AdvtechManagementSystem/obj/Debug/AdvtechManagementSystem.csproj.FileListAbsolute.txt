@@ -127,3 +127,9 @@ E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\Ad
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\MODEL.pdb
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\obj\Debug\AdvtechManagementSystem.frmStock.resources
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\obj\Debug\AdvtechManagementSystem.csproj.ResolveComReference.cache
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\NPOI.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\NPOI.OOXML.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\NPOI.OpenXml4Net.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\NPOI.OpenXmlFormats.dll
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\ICSharpCode.SharpZipLib.xml

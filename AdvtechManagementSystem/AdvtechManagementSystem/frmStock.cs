@@ -15,11 +15,11 @@ namespace AdvtechManagementSystem
 {
     public partial class frmStock : Form
     {
-        DataTable dt = CargoinfoOperate.selectCargoinfoPage(0,10);
+        DataTable dt = CargoinfoOperate.selectCargoinfoPage(0,50);
         Timer time = new Timer();
         int num = 1;
         int start = 0;
-        int end = 30;
+        int end = 50;
         public frmStock()
         {
             InitializeComponent();
@@ -33,6 +33,29 @@ namespace AdvtechManagementSystem
         /// <param name="e"></param>
         private void tsbSelect_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tstxtStock.Text.Trim()))
+            {
+                DataTable dtAll = CargoinfoOperate.selectCargoinfo();
+                if (dtAll.HasErrors)
+                {
+                    Errorinfo.errorPost("查询库存信息失败。");
+                    tslStatus.Text = "查询库存信息失败，已反馈服务器，请稍后重试";
+                    time.Start();
+                }
+                LoadCargoinfo(dtAll);
+                if (dtAll.Rows.Count != 0)
+                {
+                    llUp.Enabled = false;
+                    lPageNumber.Text = 1 + "/" + Math.Ceiling((double)dtAll.Rows.Count / 5);
+                }
+                else
+                {
+                    llUp.Enabled = false;
+                    llDown.Enabled = false;
+                    lPageNumber.Text = "0/0";
+                }
+                return;
+            }
             string selecttext = tstxtStock.Text;//获取查询内容
             DataTable dt = CargoinfoOperate.selectCargoinfo(selecttext);
             if (dt.HasErrors)
@@ -42,7 +65,9 @@ namespace AdvtechManagementSystem
                 time.Start();
             }
             LoadCargoinfo(dt);
-
+            lPageNumber.Text = "1/1";
+            llUp.Enabled = false;
+            llDown.Enabled = false;
             #region 详细库存操作
             //try
             //{
@@ -114,6 +139,18 @@ namespace AdvtechManagementSystem
                 time.Start();
             }
             LoadCargoinfo(dt);
+            if (dt.Rows.Count != 0)
+            {
+                llUp.Enabled = false;
+                DataTable dtAll = CargoinfoOperate.selectCargoinfo();
+                lPageNumber.Text = 1 + "/" + Math.Ceiling((double)dtAll.Rows.Count / 5);
+            }
+            else
+            {
+                llUp.Enabled = false;
+                llDown.Enabled = false;
+                lPageNumber.Text = "0/0";
+            }
             #region 详细操作内容
             //try
             //{
@@ -181,39 +218,56 @@ namespace AdvtechManagementSystem
         /// <param name="e"></param>
         private void tsbInStock_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();//首先根据打开文件对话框，选择excel表格
-            ofd.Filter = "表格|*.xlsx";//打开文件对话框筛选器
-            string strPath;//文件完整的路径名
-            if (ofd.ShowDialog() == DialogResult.OK)
+            try
             {
-                try
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Excel文件（*.xls,*.xlsx）|*.xls;*.xlsx";
+                DataTable importdt = new DataTable(); ;
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    strPath = ofd.FileName;
-                    //microsoft.jet.oledb.4.0;Excel 97-2003
-                    //Microsoft.ACE.OLEDB.12.0 Excel 2010
-                    string strCon = "provider=Microsoft.ACE.OLEDB.12.0;data source=" + strPath + ";extended properties=excel 8.0";//关键是红色区域
-                    OleDbConnection Con = new OleDbConnection(strCon);//建立连接
-                    string strSql = "select * from [Sheet1$]";//表名的写法也应注意不同，对应的excel表为sheet1，在这里要在其后加美元符号$，并用中括号
-                    OleDbCommand Cmd = new OleDbCommand(strSql, Con);//建立要执行的命令
-                    OleDbDataAdapter da = new OleDbDataAdapter(Cmd);//建立数据适配器
-                    DataSet ds = new DataSet();//新建数据集
-                    da.Fill(ds, "Sheet1");//把数据适配器中的数据读到数据集中的一个表中（此处表名为shyman，可以任取表名）
-                    //指定datagridview1的数据源为数据集ds的第一张表（也就是shyman表），也可以写ds.Table["shyman"]
-                    DataTable exportdt = ds.Tables[0];
-
-                    //将导入的数据添加到数据库中
-                    foreach (DataRow item in exportdt.Rows)
+                    string excelname = ofd.FileName;
+                    //importdt = NPOIHelper.ImportExceltoDt(excelname,"Sheet1",-1);
+                    importdt = NPOIHelper.ExcelToTable(excelname);//默认有标题
+                }
+                if (importdt.Rows.Count!=9)
+                {
+                    MessageBox.Show("格式不正确，请核实之后重新输入。");
+                    return;
+                }
+                foreach (DataRow item in importdt.Rows)
+                {
+                    Dictionary<string, string> data = new Dictionary<string, string>();
+                    data.Add("cargoid", item[0].ToString());
+                    data.Add("cargoname", item[1].ToString());
+                    data.Add("cargomodal", item[2].ToString());
+                    data.Add("cargoamount", item[3].ToString());
+                    data.Add("cargopurchase", item[4].ToString());
+                    data.Add("cargosale", item[5].ToString());
+                    data.Add("cargoware", item[6].ToString());
+                    data.Add("cargounit", item[7].ToString());
+                    data.Add("cargoremark", item[8].ToString());
+                    if(CargoinfoOperate.insertCargoinfo(data).HasErrors)
                     {
-                        MessageBox.Show(item[1].ToString());
+                        MessageBox.Show("导入错误，已反馈服务器，请稍后再试");
+                        return;
                     }
-                }
-                catch (Exception ex)
-                {
-                    Errorinfo.errorPost("表格导入错误，错误信息如下："+ex.Message);//捕捉异常
-                    tslStatus.Text = "表格导入失败，已反馈服务器，请稍后再试！";
+                    MessageBox.Show("导入成功！","系统提示");
+                    tslStatus.Text = "导入成功。";
                     time.Start();
+
+                    LoadCargoinfo(dt);
+
                 }
+                
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("错误信息：" + ex.Message), "系统提示");
+                Errorinfo.errorPost("导入错误，错误内容如下：" + ex.Message);
+                tslStatus.Text = "导入错误，已反馈到服务器，请稍后重试。";
+                time.Start();
+            }
+            
         }
         /// <summary>
         /// Excel导出库存
@@ -222,7 +276,259 @@ namespace AdvtechManagementSystem
         /// <param name="e"></param>
         private void tsbOutStock_Click(object sender, EventArgs e)
         {
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter= "Excel文件(*.xls)|*.xls|Excel(*.xlsx)|*.xlsx";
+                if (sfd.ShowDialog()==DialogResult.OK)
+                {
+                    string filePath = sfd.FileName;
+                    DataTable Alldt = CargoinfoOperate.selectCargoinfo();
+                    NPOIHelper.TableToExcel(Alldt,filePath);
 
+                    MessageBox.Show("导出成功！", "系统提示");
+                    tslStatus.Text = "导出成功。";
+                    time.Start();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("错误信息：" + ex.Message), "系统提示");
+                Errorinfo.errorPost("导出错误，错误内容如下：" + ex.Message);
+                tslStatus.Text = "导出错误，已反馈到服务器，请稍后重试。";
+                time.Start();
+            }
+        }
+        /// <summary>
+        /// 上一页
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void llUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string[] num = lPageNumber.Text.Split('/');
+            if (Convert.ToInt32(num[0])-1==0|| Convert.ToInt32(num[0]) - 1 == 1)llUp.Enabled = false;
+            llDown.Enabled = true;
+            int page = Convert.ToInt32(num[0]);
+            int nowpage = page-1;
+            lPageNumber.Text = nowpage + "/" + num[1];
+            end = start;
+            start -= 50;
+            LoadCargoinfo(CargoinfoOperate.selectCargoinfoPage(start, end));
+        }
+        /// <summary>
+        /// 下一页
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void llDown_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string[] num = lPageNumber.Text.Split('/');
+            if (Convert.ToInt32(num[0])+1==Convert.ToInt32(num[1]))llDown.Enabled = false;
+            llUp.Enabled = true;
+            int page = Convert.ToInt32(num[0]);
+            int nowpage = page+1;
+            lPageNumber.Text = nowpage + "/" + num[1];
+            start = end;
+            end += 50;
+            LoadCargoinfo(CargoinfoOperate.selectCargoinfoPage(start, end));
+        }
+        /// <summary>
+        /// 点击时显示详细信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbStock_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (lbStock.SelectedValue == null) return;
+            if (lbStock.SelectedValue.ToString() == "null")
+            {
+                txtStockName.Text = string.Empty;
+                txtStockModal.Text = string.Empty;
+                return;
+            }
+            //SN码的名称型号显示
+            gbSNID.Tag = lbStock.SelectedValue;
+            string[] namemodal = lbStock.Text.Split('(');
+            txtStockName.Text = namemodal[0];
+            txtStockModal.Text = namemodal[1].Substring(0,namemodal[1].Length- 1);
+            //显示详细的信息
+            DataTable dt = CargoinfoOperate.selectCargoinfo(lbStock.SelectedValue.ToString());
+            StringBuilder sb = new StringBuilder();
+            if (dt.Rows.Count == 0) return;
+            foreach (DataRow item in dt.Rows)
+            {
+                sb.AppendLine("货物编号：" + item["cargoid"].ToString());
+                sb.AppendLine("货物名称：" + item["cargoname"].ToString());
+                sb.AppendLine("货物型号：" + item["cargomodal"].ToString());
+                sb.AppendLine("货物数量：" + item["cargoamount"].ToString());
+                sb.AppendLine("采购价格：" + item["cargopurchase"].ToString());
+                sb.AppendLine("销售价格：" + item["cargosale"].ToString());
+                sb.AppendLine("存放仓库：" + item["cargoware"].ToString());
+                sb.AppendLine("存放单位：" + item["cargounit"].ToString());
+                sb.AppendLine("存放时间：" + item["cargotime"].ToString());
+                sb.AppendLine("备注：" +item["cargoremark"].ToString());
+            }
+                rtbStock.Text = sb.ToString();
+        }
+        /// <summary>
+        /// 双击显示详细信息修改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbStock_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbStock.SelectedValue == null) return;
+            DataTable dt = CargoinfoOperate.selectCargoinfo(lbStock.SelectedValue.ToString());
+            if (dt.Rows.Count == 0) return;
+            gbStock.Tag = dt.Rows[0]["cargoid"];
+            txtName.Text=dt.Rows[0]["cargoname"].ToString();
+            txtModal.Text = dt.Rows[0]["cargomodal"].ToString();
+            nNum.Value = Convert.ToDecimal(dt.Rows[0]["cargoamount"]);
+            txtPurchase.Text = dt.Rows[0]["cargopurchase"].ToString();
+            txtSale.Text = dt.Rows[0]["cargosale"].ToString();
+            cbbWare.Text = dt.Rows[0]["cargoware"].ToString();
+            cbbUnit.Text = dt.Rows[0]["cargounit"].ToString();
+            rtbRemark.Text = dt.Rows[0]["cargoremark"].ToString();
+        }
+        /// <summary>
+        /// 提交库存数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (gbStock.Tag==null)
+            {
+                MessageBox.Show("请双击选择货物信息。", "系统提示");
+                return;
+            }
+            //修改提交
+
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add("@cargoid", gbStock.Tag.ToString());
+            data.Add("cargoname", txtName.Text);
+            data.Add("cargomodal", txtModal.Text);
+            data.Add("cargoamount", nNum.Value.ToString());
+            data.Add("cargopurchase", txtPurchase.Text);
+            data.Add("cargosale", txtSale.Text);
+            data.Add("cargoware", cbbWare.Text);
+            data.Add("cargounit", cbbUnit.Text);
+            data.Add("cargoremark", rtbRemark.Text);
+            DataTable dts = CargoinfoOperate.insertCargoinfo(data);
+            if (dts.HasErrors)
+            {
+                Errorinfo.errorPost("提交数据失败，提交内容——编号：" + gbStock.Tag.ToString() + "，名称：" + txtName.Text + ",型号：" + txtModal.Text);
+                tslStatus.Text = "提交失败";
+                time.Start();
+                return;
+            }
+            MessageBox.Show("提交成功！", "系统提示");
+            tslStatus.Text = "提交数据成功。";
+            time.Start();
+
+            LoadCargoinfo(dt);
+        }
+        /// <summary>
+        /// SN码导入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSNIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Excel文件（*.xls,*.xlsx）|*.xls;*.xlsx";
+                DataTable importdt = new DataTable(); ;
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string excelname = ofd.FileName;
+                    //importdt = NPOIHelper.ImportExceltoDt(excelname,"Sheet1",-1);
+                    importdt = NPOIHelper.ExcelToTable(excelname);//默认有标题
+                }
+                foreach (DataRow item in importdt.Rows)
+                {
+                    lbSNOut.Items.Add(item[0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("错误信息：" + ex.Message), "系统提示");
+                Errorinfo.errorPost("导入错误，错误内容如下：" + ex.Message);
+                tslStatus.Text = "导入错误，已反馈到服务器，请稍后重试。";
+                time.Start();
+            }
+        }
+        /// <summary>
+        /// SN码导出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSNOut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel文件(*.xls)|*.xls|Excel(*.xlsx)|*.xlsx";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = sfd.FileName;
+                    DataTable Alldt = OtherOperate.selectSerial(gbSNID.Tag==null?null:gbSNID.Tag.ToString());
+                    NPOIHelper.TableToExcel(Alldt, filePath);
+
+                    MessageBox.Show("导出成功！", "系统提示");
+                    tslStatus.Text = "导出成功。";
+                    time.Start();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("错误信息：" + ex.Message), "系统提示");
+                Errorinfo.errorPost("导出错误，错误内容如下：" + ex.Message);
+                tslStatus.Text = "导出错误，已反馈到服务器，请稍后重试。";
+                time.Start();
+            }
+        }
+        /// <summary>
+        /// SN码保存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSNSave_Click(object sender, EventArgs e)
+        {
+            if (lbSNOut.Items.Count == 0)
+            {
+                MessageBox.Show("请添加数据。");
+                return;
+            }
+            foreach (string item in lbSNOut.Items)
+            {
+                string serid = gbSNID.Tag.ToString();
+                if (SerialOperate.insertSerial(serid, item, "").HasErrors)
+                {
+                    MessageBox.Show(String.Format("SN码导入错误。SN码："+item), "系统提示");
+                    tslStatus.Text = "SN码导入错误。SN码：" + item;
+                    time.Start();
+                    return;
+                }
+                lbSNIn.Items.Add(item);
+                lbSNOut.Items.Remove(item);
+            }
+
+        }
+        /// <summary>
+        /// 输入回车进行SN码保存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtSNID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+            {
+                lbSNOut.Items.Add(txtSNID.Text);
+                txtSNID.Text = string.Empty;
+            }
         }
     }
 }

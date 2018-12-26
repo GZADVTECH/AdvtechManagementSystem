@@ -54,7 +54,7 @@
             this.gbStock = new System.Windows.Forms.GroupBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.rtbRemark = new System.Windows.Forms.RichTextBox();
-            this.txtUnit = new System.Windows.Forms.ComboBox();
+            this.cbbUnit = new System.Windows.Forms.ComboBox();
             this.cbbWare = new System.Windows.Forms.ComboBox();
             this.txtSale = new System.Windows.Forms.TextBox();
             this.txtPurchase = new System.Windows.Forms.TextBox();
@@ -150,11 +150,14 @@
             this.lbStock.Name = "lbStock";
             this.lbStock.Size = new System.Drawing.Size(221, 544);
             this.lbStock.TabIndex = 1;
+            this.lbStock.SelectedValueChanged += new System.EventHandler(this.lbStock_SelectedValueChanged);
+            this.lbStock.DoubleClick += new System.EventHandler(this.lbStock_DoubleClick);
             // 
             // rtbStock
             // 
             this.rtbStock.Location = new System.Drawing.Point(240, 29);
             this.rtbStock.Name = "rtbStock";
+            this.rtbStock.ReadOnly = true;
             this.rtbStock.Size = new System.Drawing.Size(521, 115);
             this.rtbStock.TabIndex = 2;
             this.rtbStock.Text = "";
@@ -188,6 +191,7 @@
             this.btnSNSave.TabIndex = 6;
             this.btnSNSave.Text = "保存";
             this.btnSNSave.UseVisualStyleBackColor = true;
+            this.btnSNSave.Click += new System.EventHandler(this.btnSNSave_Click);
             // 
             // txtSNID
             // 
@@ -195,6 +199,7 @@
             this.txtSNID.Name = "txtSNID";
             this.txtSNID.Size = new System.Drawing.Size(237, 21);
             this.txtSNID.TabIndex = 5;
+            this.txtSNID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSNID_KeyPress);
             // 
             // lSNOut
             // 
@@ -240,6 +245,7 @@
             this.btnSNOut.TabIndex = 2;
             this.btnSNOut.Text = "Excel导出";
             this.btnSNOut.UseVisualStyleBackColor = true;
+            this.btnSNOut.Click += new System.EventHandler(this.btnSNOut_Click);
             // 
             // btnSNIn
             // 
@@ -249,6 +255,7 @@
             this.btnSNIn.TabIndex = 2;
             this.btnSNIn.Text = "Excel导入";
             this.btnSNIn.UseVisualStyleBackColor = true;
+            this.btnSNIn.Click += new System.EventHandler(this.btnSNIn_Click);
             // 
             // txtStockModal
             // 
@@ -288,7 +295,7 @@
             // 
             this.gbStock.Controls.Add(this.btnSave);
             this.gbStock.Controls.Add(this.rtbRemark);
-            this.gbStock.Controls.Add(this.txtUnit);
+            this.gbStock.Controls.Add(this.cbbUnit);
             this.gbStock.Controls.Add(this.cbbWare);
             this.gbStock.Controls.Add(this.txtSale);
             this.gbStock.Controls.Add(this.txtPurchase);
@@ -318,6 +325,7 @@
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "提交";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // rtbRemark
             // 
@@ -327,17 +335,35 @@
             this.rtbRemark.TabIndex = 8;
             this.rtbRemark.Text = "如需标注是否含税，请在此处填写（例:采购价格不含税，销售价格含税）";
             // 
-            // txtUnit
+            // cbbUnit
             // 
-            this.txtUnit.FormattingEnabled = true;
-            this.txtUnit.Location = new System.Drawing.Point(210, 188);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(49, 20);
-            this.txtUnit.TabIndex = 7;
+            this.cbbUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbUnit.FormattingEnabled = true;
+            this.cbbUnit.Items.AddRange(new object[] {
+            "个",
+            "卷",
+            "台",
+            "套",
+            "条",
+            "位",
+            "箱",
+            "打"});
+            this.cbbUnit.Location = new System.Drawing.Point(210, 188);
+            this.cbbUnit.Name = "cbbUnit";
+            this.cbbUnit.Size = new System.Drawing.Size(49, 20);
+            this.cbbUnit.TabIndex = 7;
             // 
             // cbbWare
             // 
+            this.cbbWare.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbWare.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbWare.FormattingEnabled = true;
+            this.cbbWare.Items.AddRange(new object[] {
+            "公司",
+            "工厂",
+            "仓库",
+            "其他"});
             this.cbbWare.Location = new System.Drawing.Point(79, 188);
             this.cbbWare.Name = "cbbWare";
             this.cbbWare.Size = new System.Drawing.Size(78, 20);
@@ -395,6 +421,7 @@
             // 
             this.txtModal.Location = new System.Drawing.Point(79, 52);
             this.txtModal.Name = "txtModal";
+            this.txtModal.ReadOnly = true;
             this.txtModal.Size = new System.Drawing.Size(180, 21);
             this.txtModal.TabIndex = 2;
             // 
@@ -402,6 +429,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(79, 18);
             this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(180, 21);
             this.txtName.TabIndex = 1;
             // 
@@ -459,6 +487,7 @@
             this.llUp.TabIndex = 5;
             this.llUp.TabStop = true;
             this.llUp.Text = "上一页";
+            this.llUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llUp_LinkClicked);
             // 
             // llDown
             // 
@@ -469,15 +498,16 @@
             this.llDown.TabIndex = 5;
             this.llDown.TabStop = true;
             this.llDown.Text = "下一页";
+            this.llDown.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llDown_LinkClicked);
             // 
             // lPageNumber
             // 
             this.lPageNumber.AutoSize = true;
             this.lPageNumber.Location = new System.Drawing.Point(95, 579);
             this.lPageNumber.Name = "lPageNumber";
-            this.lPageNumber.Size = new System.Drawing.Size(47, 12);
+            this.lPageNumber.Size = new System.Drawing.Size(35, 12);
             this.lPageNumber.TabIndex = 6;
-            this.lPageNumber.Text = "100/100";
+            this.lPageNumber.Text = "1/100";
             // 
             // ssStatus
             // 
@@ -556,7 +586,7 @@
         private System.Windows.Forms.GroupBox gbStock;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.RichTextBox rtbRemark;
-        private System.Windows.Forms.ComboBox txtUnit;
+        private System.Windows.Forms.ComboBox cbbUnit;
         private System.Windows.Forms.ComboBox cbbWare;
         private System.Windows.Forms.TextBox txtSale;
         private System.Windows.Forms.TextBox txtPurchase;

@@ -50,5 +50,51 @@ namespace BLL
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_select_cargoinfo", param, CommandType.StoredProcedure);
             return dt;
         }
+        /// <summary>
+        /// 添加货物信息
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable insertCargoinfo(Dictionary<string,string> data)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@cargoid",data["cargoid"]),
+                new SqlParameter("@cargoname",data["cargoname"]),
+                new SqlParameter("@cargomodal",data["cargomodal"]),
+                new SqlParameter("@cargoamount",data["cargoamount"]),
+                new SqlParameter("@cargopurchase",data["cargopurchase"]),
+                new SqlParameter("@cargosale",data["cargosale"]),
+                new SqlParameter("@cargoware",data["cargoware"]),
+                new SqlParameter("@cargounit",data["cargounit"]),
+                new SqlParameter("@cargotime",DateTime.Now),
+                new SqlParameter("@cargoremark",data["cargoremark"])
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_cargoinfo", param, CommandType.StoredProcedure);
+            return dt;
+        }
+        /// <summary>
+        /// 更新库存信息
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable updateCargoinfo(Dictionary<string,string> data)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@cargoid",data["cargoid"]),
+                new SqlParameter("@cargoname",data["cargoname"]),
+                new SqlParameter("@cargomodal",data["cargomodal"]),
+                new SqlParameter("@cargoamount",data["cargoamount"]),
+                new SqlParameter("@cargopurchase",data["cargopurchase"]),
+                new SqlParameter("@cargosale",data["cargosale"]),
+                new SqlParameter("@cargoware",data["cargoware"]),
+                new SqlParameter("@cargounit",data["cargounit"]),
+                new SqlParameter("@cargotime",DateTime.Now),
+                new SqlParameter("@cargoremark",data["cargoremark"])
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_cargoinfo", param, CommandType.StoredProcedure);
+            return dt;
+        }
     }
 }

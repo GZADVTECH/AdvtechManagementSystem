@@ -3,7 +3,7 @@ drop proc pro_insert_delivery
 go
 create procedure pro_insert_delivery
 @deluserid int=null,
-@delcargo int=null,
+@delcargo nvarchar(20)=null,
 @delamount int=null,
 @delprice money=null,
 @deltotalprice money=null,
@@ -24,7 +24,7 @@ go
 create procedure pro_update_delivery
 @delid int,
 @deluserid int=null,
-@delcargo int=null,
+@delcargo nvarchar(20)=null,
 @delamount int=null,
 @delprice money=null,
 @deltotalprice money=null,

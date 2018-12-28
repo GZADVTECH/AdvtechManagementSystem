@@ -64,6 +64,7 @@
             this.tsbIn.Name = "tsbIn";
             this.tsbIn.Size = new System.Drawing.Size(76, 22);
             this.tsbIn.Text = "入库管理";
+            this.tsbIn.Click += new System.EventHandler(this.tsbIn_Click);
             // 
             // tsbOut
             // 
@@ -72,6 +73,7 @@
             this.tsbOut.Name = "tsbOut";
             this.tsbOut.Size = new System.Drawing.Size(76, 22);
             this.tsbOut.Text = "出库管理";
+            this.tsbOut.Click += new System.EventHandler(this.tsbOut_Click);
             // 
             // tsbStock
             // 
@@ -80,6 +82,7 @@
             this.tsbStock.Name = "tsbStock";
             this.tsbStock.Size = new System.Drawing.Size(76, 22);
             this.tsbStock.Text = "库存管理";
+            this.tsbStock.Click += new System.EventHandler(this.tsbStock_Click);
             // 
             // frmWarehouse
             // 

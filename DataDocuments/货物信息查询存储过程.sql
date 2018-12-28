@@ -17,7 +17,7 @@ create procedure pro_select_cargoinfo
 @selecttext nvarchar(30)
 as
 begin
-if(PATINDEX('%[^0-9]%',@selecttext)=0)
+if(@selecttext like '[A-Z][0-9][0-9][0-9]')
 select * from cargoinfo where cargoid like '%'+@selecttext+'%' and cargostatus=1
 else
 select * from  cargoinfo where (cargoname like '%'+@selecttext+'%' or cargomodal like '%'+@selecttext+'%') and cargostatus=1

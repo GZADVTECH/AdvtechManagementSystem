@@ -16,7 +16,7 @@ namespace AdvtechManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmStock());
+            Application.Run(new frmLogin());
         }
     }
 }

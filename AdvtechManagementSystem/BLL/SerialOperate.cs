@@ -28,5 +28,17 @@ namespace BLL
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_serial", param, CommandType.StoredProcedure);
             return dt;
         }
+
+        public static DataTable deleteSerial(string serid, string sersnid)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@serid",serid),
+                new SqlParameter("@sersnid",sersnid),
+                new SqlParameter("@@serstatus",false)
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_delete_serial", param, CommandType.StoredProcedure);
+            return dt;
+        }
     }
 }

@@ -3,7 +3,7 @@ drop proc pro_insert_warehousing
 go
 create procedure pro_insert_warehousing
 @wareuserid int,
-@warecargo int,
+@warecargo nvarchar(20),
 @warecount int,
 @wareprice money,
 @waretotalprice money,
@@ -15,7 +15,9 @@ as
 begin
 insert into warehousing values(@wareuserid,@warecargo,@warecount,@wareprice,@waretotalprice,@waretime,@wareware,@wareremark,@warestatus)
 if(@@ERROR=0)
+begin
 insert into cargoinount values(@warecargo,@warecount,GETDATE(),'Èë¿â')
+end
 end
 go
 
@@ -25,7 +27,7 @@ go
 create procedure pro_update_warehousing
 @wareid int,
 @wareuserid int=null,
-@warecargo int=null,
+@warecargo nvarchar(20)=null,
 @warecount int=null,
 @wareprice money=null,
 @waretotalprice money=null,

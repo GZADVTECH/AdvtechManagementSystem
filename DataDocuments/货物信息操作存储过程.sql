@@ -2,6 +2,7 @@
 drop proc pro_insert_cargoinfo
 go
 create procedure pro_insert_cargoinfo
+@cargoid nvarchar(20),
 @cargoname nvarchar(50),
 @cargomodal nvarchar(50),
 @cargoamount int=null,
@@ -14,7 +15,7 @@ create procedure pro_insert_cargoinfo
 @cargostatus bit=1
 as
 begin
-insert into cargoinfo values(@cargoname,@cargomodal,@cargoamount,@cargopurchase,@cargosale,@cargoware,@cargounit,@cargotime,@cargoremark,@cargostatus)
+insert into cargoinfo values(@cargoid,@cargoname,@cargomodal,@cargoamount,@cargopurchase,@cargosale,@cargoware,@cargounit,@cargotime,@cargoremark,@cargostatus)
 end
 go
 

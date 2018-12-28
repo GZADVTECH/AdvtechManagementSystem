@@ -83,7 +83,7 @@ create table warehousing
 (
 	wareid int primary key identity(1,1),
 	wareuserid int,
-	warecargo int,
+	warecargo nvarchar(20),
 	warecount int,
 	wareprice money,
 	waretotalprice money,
@@ -103,7 +103,7 @@ create table delivery
 (
 	delid int primary key identity(1,1),
 	deluserid int,
-	delcargo int,
+	delcargo nvarchar(20),
 	delamount int,
 	delprice money,
 	deltotalprice money,
@@ -188,7 +188,7 @@ drop table serial
 go
 create table serial
 (
-	serid int primary key,
+	serid nvarchar(20),
 	sersnid nvarchar(30),
 	serstatus bit,
 	serremark nvarchar(255),

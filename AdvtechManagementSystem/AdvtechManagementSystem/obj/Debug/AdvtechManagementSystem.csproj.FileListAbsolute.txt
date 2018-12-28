@@ -133,3 +133,5 @@ E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\Ad
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\NPOI.OpenXml4Net.dll
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\NPOI.OpenXmlFormats.dll
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\bin\Debug\ICSharpCode.SharpZipLib.xml
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\obj\Debug\AdvtechManagementSystem.frmWareIn.resources
+E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\AdvtechManagementSystem\obj\Debug\AdvtechManagementSystem.frmWareOut.resources

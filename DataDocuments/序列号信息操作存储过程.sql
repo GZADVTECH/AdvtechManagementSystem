@@ -2,7 +2,7 @@
 drop proc pro_insert_serial
 go
 create procedure pro_insert_serial
-@serid int,
+@serid nvarchar(20),
 @sersnid nvarchar(30),
 @serstatus bit=1,
 @serremark nvarchar(255)=null
@@ -18,7 +18,7 @@ go
 drop proc pro_update_serial
 go
 create procedure pro_update_serial
-@serid int=null,
+@serid nvarchar(20)=null,
 @sersnid nvarchar(30)=null,
 @serremark nvarchar(255)=null
 as
@@ -32,7 +32,7 @@ go
 drop proc pro_delete_serial
 go
 create procedure pro_delete_serial
-@serid int,
+@serid nvarchar(20),
 @sersnid nvarchar(30)=null,
 @serstatus bit=null
 as

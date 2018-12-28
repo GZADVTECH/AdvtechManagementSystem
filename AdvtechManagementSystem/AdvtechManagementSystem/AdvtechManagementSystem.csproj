@@ -92,6 +92,18 @@
     <Compile Include="frmWarehouse.Designer.cs">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmWareIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWareIn.Designer.cs">
+      <DependentUpon>frmWareIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWareOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWareOut.Designer.cs">
+      <DependentUpon>frmWareOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmForgetPassword.resx">
@@ -114,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmWarehouse.resx">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWareIn.resx">
+      <DependentUpon>frmWareIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWareOut.resx">
+      <DependentUpon>frmWareOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

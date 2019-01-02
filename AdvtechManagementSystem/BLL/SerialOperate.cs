@@ -28,7 +28,12 @@ namespace BLL
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_serial", param, CommandType.StoredProcedure);
             return dt;
         }
-
+        /// <summary>
+        /// 删除序列号
+        /// </summary>
+        /// <param name="serid"></param>
+        /// <param name="sersnid"></param>
+        /// <returns></returns>
         public static DataTable deleteSerial(string serid, string sersnid)
         {
             SqlParameter[] param =

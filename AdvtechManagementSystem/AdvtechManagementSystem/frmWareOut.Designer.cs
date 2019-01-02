@@ -43,6 +43,7 @@
             this.lSnid = new System.Windows.Forms.Label();
             this.rtbContent = new System.Windows.Forms.RichTextBox();
             this.gbStock = new System.Windows.Forms.GroupBox();
+            this.cbbModal = new System.Windows.Forms.ComboBox();
             this.cbbName = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.lCargoid = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.lRemark = new System.Windows.Forms.Label();
             this.lunit = new System.Windows.Forms.Label();
             this.lWare = new System.Windows.Forms.Label();
-            this.cbbModal = new System.Windows.Forms.ComboBox();
             this.ssStatus.SuspendLayout();
             this.tsOut.SuspendLayout();
             this.gbSnid.SuspendLayout();
@@ -210,6 +210,16 @@
             this.gbStock.TabStop = false;
             this.gbStock.Text = "货物信息";
             // 
+            // cbbModal
+            // 
+            this.cbbModal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbModal.FormattingEnabled = true;
+            this.cbbModal.Location = new System.Drawing.Point(83, 55);
+            this.cbbModal.Name = "cbbModal";
+            this.cbbModal.Size = new System.Drawing.Size(181, 20);
+            this.cbbModal.TabIndex = 26;
+            this.cbbModal.SelectedValueChanged += new System.EventHandler(this.cbbModal_SelectedValueChanged);
+            // 
             // cbbName
             // 
             this.cbbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -246,6 +256,7 @@
             this.rtbRemark.Size = new System.Drawing.Size(180, 176);
             this.rtbRemark.TabIndex = 24;
             this.rtbRemark.Text = "如需标注是否含税，请在此处填写（例:采购价格不含税，销售价格含税）";
+            this.rtbRemark.Enter += new System.EventHandler(this.rtbRemark_Enter);
             // 
             // cbbUnit
             // 
@@ -344,7 +355,6 @@
             // 
             this.nNum.Location = new System.Drawing.Point(84, 122);
             this.nNum.Name = "nNum";
-            this.nNum.ReadOnly = true;
             this.nNum.Size = new System.Drawing.Size(180, 21);
             this.nNum.TabIndex = 19;
             // 
@@ -384,16 +394,6 @@
             this.lWare.TabIndex = 17;
             this.lWare.Text = "存放位置：";
             // 
-            // cbbModal
-            // 
-            this.cbbModal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbModal.FormattingEnabled = true;
-            this.cbbModal.Location = new System.Drawing.Point(83, 55);
-            this.cbbModal.Name = "cbbModal";
-            this.cbbModal.Size = new System.Drawing.Size(181, 20);
-            this.cbbModal.TabIndex = 26;
-            this.cbbModal.SelectedValueChanged += new System.EventHandler(this.cbbModal_SelectedValueChanged);
-            // 
             // frmWareOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -410,6 +410,7 @@
             this.MinimizeBox = false;
             this.Name = "frmWareOut";
             this.Text = "出库";
+            this.Load += new System.EventHandler(this.frmWareOut_Load);
             this.ssStatus.ResumeLayout(false);
             this.ssStatus.PerformLayout();
             this.tsOut.ResumeLayout(false);

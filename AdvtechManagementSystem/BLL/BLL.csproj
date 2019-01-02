@@ -62,12 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CargoinfoOperate.cs" />
+    <Compile Include="Customerinfo.cs" />
     <Compile Include="DeliveryOperate.cs" />
     <Compile Include="Errorinfo.cs" />
     <Compile Include="MD5Encrypt.cs" />
     <Compile Include="NPOIHelper.cs" />
     <Compile Include="OtherOperate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOperate.cs" />
     <Compile Include="SerialOperate.cs" />
     <Compile Include="UserinfoOperate.cs" />
     <Compile Include="ValidateType.cs" />

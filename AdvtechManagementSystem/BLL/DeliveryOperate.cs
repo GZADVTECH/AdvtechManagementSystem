@@ -25,5 +25,25 @@ namespace BLL
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_select_delivery", param, CommandType.StoredProcedure);
             return dt;
         }
+        /// <summary>
+        /// 出库信息插入
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable insertDelivery(Dictionary<string, string> data)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@deluserid",data["deluserid"]),
+                new SqlParameter("@delcargo",data["delcargo"]),
+                new SqlParameter("@delamount",data["delamount"]),
+                new SqlParameter("@delprice",data["delprice"]),
+                new SqlParameter("@deltotalprice",data["deltotalprice"]),
+                new SqlParameter("@deltime",DateTime.Now),
+                new SqlParameter("@delremark",data["delremark"])
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_delivery", param, CommandType.StoredProcedure);
+            return dt;
+        }
     }
 }

@@ -29,61 +29,56 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchase));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsPurchase = new System.Windows.Forms.ToolStrip();
+            this.tsbPurchase = new System.Windows.Forms.ToolStripButton();
+            this.tsbSituation = new System.Windows.Forms.ToolStripButton();
+            this.tsbSupplier = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.tsbAuditing = new System.Windows.Forms.ToolStripButton();
+            this.tsPurchase.SuspendLayout();
             this.SuspendLayout();
             // 
-            // statusStrip1
+            // tsPurchase
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 705);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1164, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
+            this.tsPurchase.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbPurchase,
+            this.tsbSituation,
+            this.tsbSupplier,
             this.toolStripButton4,
-            this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1164, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsbAuditing});
+            this.tsPurchase.Location = new System.Drawing.Point(0, 0);
+            this.tsPurchase.Name = "tsPurchase";
+            this.tsPurchase.Size = new System.Drawing.Size(1164, 25);
+            this.tsPurchase.TabIndex = 1;
+            this.tsPurchase.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsbPurchase
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton1.Text = "采购订单";
+            this.tsbPurchase.Image = ((System.Drawing.Image)(resources.GetObject("tsbPurchase.Image")));
+            this.tsbPurchase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPurchase.Name = "tsbPurchase";
+            this.tsbPurchase.Size = new System.Drawing.Size(76, 22);
+            this.tsbPurchase.Text = "采购订单";
+            this.tsbPurchase.Click += new System.EventHandler(this.tsbPurchase_Click);
             // 
-            // toolStripButton2
+            // tsbSituation
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton2.Text = "库存情况";
+            this.tsbSituation.Image = ((System.Drawing.Image)(resources.GetObject("tsbSituation.Image")));
+            this.tsbSituation.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSituation.Name = "tsbSituation";
+            this.tsbSituation.Size = new System.Drawing.Size(76, 22);
+            this.tsbSituation.Text = "库存情况";
+            this.tsbSituation.Click += new System.EventHandler(this.tsbSituation_Click);
             // 
-            // toolStripButton3
+            // tsbSupplier
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(88, 22);
-            this.toolStripButton3.Text = "供应商管理";
+            this.tsbSupplier.Image = ((System.Drawing.Image)(resources.GetObject("tsbSupplier.Image")));
+            this.tsbSupplier.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSupplier.Name = "tsbSupplier";
+            this.tsbSupplier.Size = new System.Drawing.Size(88, 22);
+            this.tsbSupplier.Text = "供应商管理";
+            this.tsbSupplier.Visible = false;
+            this.tsbSupplier.Click += new System.EventHandler(this.tsbSupplier_Click);
             // 
             // toolStripButton4
             // 
@@ -92,14 +87,16 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(76, 22);
             this.toolStripButton4.Text = "实时报价";
+            this.toolStripButton4.Visible = false;
             // 
-            // toolStripButton5
+            // tsbAuditing
             // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton5.Text = "审核情况";
+            this.tsbAuditing.Image = ((System.Drawing.Image)(resources.GetObject("tsbAuditing.Image")));
+            this.tsbAuditing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAuditing.Name = "tsbAuditing";
+            this.tsbAuditing.Size = new System.Drawing.Size(76, 22);
+            this.tsbAuditing.Text = "审核情况";
+            this.tsbAuditing.Click += new System.EventHandler(this.tsbAuditing_Click);
             // 
             // frmPurchase
             // 
@@ -108,8 +105,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1164, 727);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.tsPurchase);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -118,21 +114,19 @@
             this.Name = "frmPurchase";
             this.Text = "采购";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPurchase_FormClosed);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsPurchase.ResumeLayout(false);
+            this.tsPurchase.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStrip tsPurchase;
+        private System.Windows.Forms.ToolStripButton tsbPurchase;
+        private System.Windows.Forms.ToolStripButton tsbSituation;
+        private System.Windows.Forms.ToolStripButton tsbSupplier;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton tsbAuditing;
     }
 }

@@ -169,7 +169,89 @@ namespace AdvtechManagementSystem
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //判断字段是否为空
+            if (ValidateType.NullOrEmptyOfString(cbbName.Text, "货物名称")) return;
+            if (ValidateType.NullOrEmptyOfString(cbbModal.Text, "货物型号")) return;
+            if (ValidateType.NullOrEmptyOfString(txtCargoid.Text, "货物编号")) return;
+            if (ValidateType.NullOrEmptyOfString(txtPurchase.Text, "采购价格")) return;
+            if (ValidateType.NullOrEmptyOfString(txtSale.Text, "销售价格")) return;
+            if (ValidateType.NullOrEmptyOfString(cbbWare.Text, "仓库位置")) return;
+            if (ValidateType.NullOrEmptyOfString(cbbUnit.Text, "单位")) return;
 
+            //进行出库操作，成功将仓库数量减少，失败则返回
+            //货物信息数组
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add("cargoid", txtCargoid.Text);
+            data.Add("cargoname", cbbName.Text);
+            data.Add("cargomodal", cbbModal.Text);
+            data.Add("cargoamount", (Convert.ToInt32(nNum.Value) - Convert.ToInt32(nNum.Tag == null ? 0 : nNum.Tag)).ToString());//修改时增加数量而不是修改数量
+            data.Add("cargopurchase", txtPurchase.Text);
+            data.Add("cargosale", txtSale.Text);
+            data.Add("cargoware", cbbWare.Text);
+            data.Add("cargounit", cbbUnit.Text);
+            data.Add("cargoremark", rtbRemark.Text);
+            //出库信息数组
+            Dictionary<string, string> deliverydata = new Dictionary<string, string>();
+            deliverydata.Add("deluserid", userinfo.userid);
+            deliverydata.Add("delcargo", txtCargoid.Text);
+            deliverydata.Add("delamount", nNum.Value.ToString());
+            deliverydata.Add("delprice", txtPurchase.Text);
+            deliverydata.Add("deltotalprice", Convert.ToString(Convert.ToDecimal(txtPurchase.Text) * Convert.ToDecimal(nNum.Value)));
+            deliverydata.Add("delremark", rtbRemark.Text);
+
+            DataTable dt = DeliveryOperate.insertDelivery(deliverydata);
+            if (dt.HasErrors)
+            {
+                Errorinfo.errorPost("出库数据添加失败。");
+                tslStatus.Text = "出库数据添加失败，已反馈服务器，请稍后重试。";
+                time.Start();
+            }
+
+            //减去仓库相对应的数量
+            DataTable updatedt = CargoinfoOperate.updateCargoinfo(data);
+            if (updatedt.HasErrors)
+            {
+                tslStatus.Text = "更新货物信息失败，已反馈服务器，请稍后重试。";
+                time.Start();
+                Errorinfo.errorPost("货物存在，选择更新货物信息操作失败。");
+            }
+
+
+            tslStatus.Text = "出库信息添加成功。";
+            time.Start();
+        }
+        /// <summary>
+        /// 默认加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmWareOut_Load(object sender, EventArgs e)
+        {
+            //添加产品名称选项
+            Dictionary<string, char> PItems = new Dictionary<string, char>();
+            PItems.Add("扫描器", 'C');
+            PItems.Add("打印头", 'D');
+            PItems.Add("打印机", 'A');
+            PItems.Add("连接线", 'L');
+            PItems.Add("配件", 'P');
+            PItems.Add("维修", 'W');
+            PItems.Add("借货", 'J');
+            PItems.Add("赠送", 'Z');
+            PItems.Add("其他", 'B');
+            BindingSource bs = new BindingSource();
+            bs.DataSource = PItems;
+            cbbName.DisplayMember = "Key";
+            cbbName.ValueMember = "Value";
+            cbbName.DataSource = bs;
+        }
+        /// <summary>
+        /// 当备注控件激活时内容为空
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rtbRemark_Enter(object sender, EventArgs e)
+        {
+            rtbRemark.Text = string.Empty;
         }
     }
 }

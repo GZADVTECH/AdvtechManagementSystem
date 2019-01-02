@@ -26,5 +26,49 @@ namespace AdvtechManagementSystem
         {
             Application.Exit();
         }
+        /// <summary>
+        /// 采购订单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbPurchase_Click(object sender, EventArgs e)
+        {
+            frmPurchase purchase = new frmPurchase();
+            purchase.MdiParent = this;
+            purchase.Show();
+        }
+        /// <summary>
+        /// 供应商管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbSupplier_Click(object sender, EventArgs e)
+        {
+            frmSupplier supplier = new frmSupplier();
+            supplier.MdiParent = this;
+            supplier.Show();
+        }
+        /// <summary>
+        /// 库存情况
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbSituation_Click(object sender, EventArgs e)
+        {
+            frmSituation situation = new frmSituation();
+            situation.MdiParent = this;
+            situation.Show();
+        }
+        /// <summary>
+        /// 审核情况
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbAuditing_Click(object sender, EventArgs e)
+        {
+            frmAuditing auditing = new frmAuditing();
+            auditing.MdiParent = this;
+            auditing.Show();
+        }
     }
 }

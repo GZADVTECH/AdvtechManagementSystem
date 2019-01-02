@@ -24,5 +24,14 @@ namespace BLL
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_select_serial", param, CommandType.StoredProcedure);
             return dt;
         }
+        /// <summary>
+        /// 审核情况查询
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable selectAuditing()
+        {
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "select * from auditing where audstatus=0", null, CommandType.Text);
+            return dt;
+        }
     }
 }

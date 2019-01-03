@@ -73,6 +73,7 @@
             this.tsbReport.Name = "tsbReport";
             this.tsbReport.Size = new System.Drawing.Size(76, 22);
             this.tsbReport.Text = "报表查看";
+            this.tsbReport.Click += new System.EventHandler(this.tsbReport_Click);
             // 
             // tsbRequest
             // 
@@ -81,6 +82,7 @@
             this.tsbRequest.Name = "tsbRequest";
             this.tsbRequest.Size = new System.Drawing.Size(76, 22);
             this.tsbRequest.Text = "请求审核";
+            this.tsbRequest.Click += new System.EventHandler(this.tsbRequest_Click);
             // 
             // frmManage
             // 

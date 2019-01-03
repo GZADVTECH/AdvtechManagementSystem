@@ -141,13 +141,13 @@ create table purchase
 	purinternal nvarchar(30),
 	purofficial nvarchar(30),
 	purcargo int,
-	paramount int,
-	parmatch bit,
-	parinvoice bit,
-	partotalprice money,
-	partime datetime,
-	parstatus bit,
-	parremark nvarchar(255),
+	puramount int,
+	purmatch bit,
+	purinvoice bit,
+	purtotalprice money,
+	purtime datetime,
+	purstatus bit,
+	purremark nvarchar(255),
 
 )
 go

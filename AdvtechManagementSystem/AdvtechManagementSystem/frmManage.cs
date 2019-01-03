@@ -37,5 +37,27 @@ namespace AdvtechManagementSystem
             usermanage.MdiParent = this;
             usermanage.Show();
         }
+        /// <summary>
+        /// 请求审核
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbRequest_Click(object sender, EventArgs e)
+        {
+            frmAuditingManage auditingmanage = new frmAuditingManage();
+            auditingmanage.MdiParent = this;
+            auditingmanage.Show();
+        }
+        /// <summary>
+        /// 报表查看
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbReport_Click(object sender, EventArgs e)
+        {
+            frmReports reports = new frmReports();
+            reports.MdiParent = this;
+            reports.Show();
+        }
     }
 }

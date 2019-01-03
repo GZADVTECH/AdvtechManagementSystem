@@ -32,5 +32,34 @@ namespace BLL
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_purchase", param, CommandType.StoredProcedure);
             return dt;
         }
+        /// <summary>
+        /// 更新采购订单状态
+        /// </summary>
+        /// <param name="purchase"></param>
+        /// <returns></returns>
+        public static DataTable updatePurchase(string purchase)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@purid",purchase),
+                new SqlParameter("@parstatus",true)
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_update_purchase", param, CommandType.StoredProcedure);
+            return dt;
+        }
+        /// <summary>
+        /// 删除采购订单
+        /// </summary>
+        /// <param name="purid"></param>
+        /// <returns></returns>
+        public static DataTable deletePurchase(string purid)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@purid",purid)
+            };
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_delete_purchase", param, CommandType.StoredProcedure);
+            return dt;
+        }
     }
 }

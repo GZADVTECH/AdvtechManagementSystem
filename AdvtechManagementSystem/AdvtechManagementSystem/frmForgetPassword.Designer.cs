@@ -70,7 +70,8 @@
             this.txtNpwd.Location = new System.Drawing.Point(77, 66);
             this.txtNpwd.Name = "txtNpwd";
             this.txtNpwd.Size = new System.Drawing.Size(100, 21);
-            this.txtNpwd.TabIndex = 1;
+            this.txtNpwd.TabIndex = 3;
+            this.txtNpwd.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -86,14 +87,15 @@
             this.txtRpwd.Location = new System.Drawing.Point(77, 93);
             this.txtRpwd.Name = "txtRpwd";
             this.txtRpwd.Size = new System.Drawing.Size(100, 21);
-            this.txtRpwd.TabIndex = 1;
+            this.txtRpwd.TabIndex = 4;
+            this.txtRpwd.UseSystemPasswordChar = true;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(54, 126);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "修改";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -112,10 +114,12 @@
             this.txtOpwd.Location = new System.Drawing.Point(77, 39);
             this.txtOpwd.Name = "txtOpwd";
             this.txtOpwd.Size = new System.Drawing.Size(100, 21);
-            this.txtOpwd.TabIndex = 1;
+            this.txtOpwd.TabIndex = 2;
+            this.txtOpwd.UseSystemPasswordChar = true;
             // 
             // frmForgetPassword
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(189, 161);

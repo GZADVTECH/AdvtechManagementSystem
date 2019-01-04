@@ -52,7 +52,7 @@ namespace BLL
             SqlParameter[] param =
             {
                 new SqlParameter("@username",name),
-                new SqlParameter("@userpwd",pwd)
+                new SqlParameter("@userpwd",MD5Encrypt.MD5Encrypt32(pwd))
         };
             int status = SQLHelper.Execute("SQL", "pro_update_userinfo", param, CommandType.StoredProcedure);
             if (status > 0)

@@ -226,6 +226,18 @@ namespace AdvtechManagementSystem
                     tsslStatus.Text = "添加成功。";
                     time.Start();
 
+                    //清空内部信息
+                    txtUsername.Text = string.Empty;
+                    rdbBoy.Checked = true;
+                    dtpBirth.Value = DateTime.Now;
+                    cbbSection.SelectedIndex = 1;
+                    cbbJob.SelectedIndex = 1;
+                    txtPhone.Text = string.Empty;
+                    cbbLevel.SelectedIndex = 1;
+                    rtbAddress.Text = string.Empty;
+                    rtbRemark.Text = string.Empty;
+
+
                     lbUser.DisplayMember = "username";
                     lbUser.ValueMember = "userid";
                     dt=UserinfoOperate.selectUserinfo() ;
@@ -291,6 +303,17 @@ namespace AdvtechManagementSystem
 
                     tsslStatus.Text = "修改成功。";
                     time.Start();
+
+                    //清空内部信息
+                    txtUsername.Text = string.Empty;
+                    rdbBoy.Checked = true;
+                    dtpBirth.Value = DateTime.Now;
+                    cbbSection.SelectedIndex = 1;
+                    cbbJob.SelectedIndex = 1;
+                    txtPhone.Text = string.Empty;
+                    cbbLevel.SelectedIndex = 1;
+                    rtbAddress.Text = string.Empty;
+                    rtbRemark.Text = string.Empty;
 
                     lbUser.DisplayMember = "username";
                     lbUser.ValueMember = "userid";

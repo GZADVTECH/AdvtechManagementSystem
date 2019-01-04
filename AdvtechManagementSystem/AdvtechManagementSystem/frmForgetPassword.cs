@@ -32,7 +32,7 @@ namespace AdvtechManagementSystem
                 return;
             if (ValidateType.NullOrEmptyOfString(txtRpwd.Text, "重新输入密码"))
                 return;
-            if (txtNpwd.Text.Equals(txtRpwd.Text))
+            if (!(txtNpwd.Text==txtRpwd.Text))
             {
                 MessageBox.Show("新密码与重输入不一致", "系统提示");
                 txtRpwd.SelectAll();

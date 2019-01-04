@@ -104,7 +104,7 @@ namespace AdvtechManagementSystem
                         Errorinfo.errorPost("无权限者试图登录");
                         break;
                 }
-                this.Close();
+                this.Hide();
             }
             else
             {

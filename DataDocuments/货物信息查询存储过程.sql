@@ -37,3 +37,17 @@ begin
 select * from (select ROW_NUMBER() over(order by cargoid asc) as rowid,* from cargoinfo)t where t.rowid>@start and t.rowid<=@end and cargostatus=1
 end
 go
+
+/*
+货物信息月份报表
+*/
+drop proc pro_month_cargoinfo
+go
+create procedure pro_month_cargoinfo
+@starttime datetime,
+@endtime datetime
+as
+begin
+select * from cargoinfo where cargotime between @starttime and @endtime
+end
+go

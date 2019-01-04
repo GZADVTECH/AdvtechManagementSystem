@@ -358,13 +358,16 @@ namespace AdvtechManagementSystem
             if (dt.Rows.Count == 0) return;
             foreach (DataRow item in dt.Rows)
             {
-                sb.AppendLine("销售商编号：" + item["customid"].ToString());
-                sb.AppendLine("销售商名称：" + item["customname"].ToString());
-                sb.AppendLine("销售商负责人：" + item["custompeople"].ToString());
-                sb.AppendLine("销售商电话：" + item["customcontact"].ToString());
-                sb.AppendLine("销售商公司地址：" + item["customaddress"].ToString());
-                sb.AppendLine("销售商备注：" + item["customremark"].ToString());
-                sb.AppendLine("销售商状态：" + item["customstatus"].ToString());
+                sb.AppendLine("货物编号：" + item["cargoid"].ToString());
+                sb.AppendLine("货物名称：" + item["cargoname"].ToString());
+                sb.AppendLine("货物型号：" + item["cargomodal"].ToString());
+                sb.AppendLine("货物数量：" + item["cargoamount"].ToString());
+                sb.AppendLine("采购价格：" + item["cargopurchase"].ToString());
+                sb.AppendLine("销售价格：" + item["cargosale"].ToString());
+                sb.AppendLine("仓库名称：" + item["cargoware"].ToString());
+                sb.AppendLine("存放单位：" + item["cargounit"].ToString());
+                sb.AppendLine("最后存放时间：" + item["cargotime"].ToString());
+                sb.AppendLine("备注：" + item["cargoremark"].ToString());
             }
                 rtbStock.Text = sb.ToString();
         }

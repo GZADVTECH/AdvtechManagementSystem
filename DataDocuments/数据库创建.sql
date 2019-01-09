@@ -140,7 +140,7 @@ create table purchase
 	purid int primary key identity(1,1),
 	purinternal nvarchar(30),
 	purofficial nvarchar(30),
-	purcargo int,
+	purcargo nvarchar(20),
 	puramount int,
 	purmatch bit,
 	purinvoice bit,

@@ -169,7 +169,6 @@ namespace AdvtechManagementSystem
             {
                 if (cbbModal.Tag == null) return;
                 txtCargoid.Text = cbbName.SelectedValue.ToString() + string.Format("{0:000}", Convert.ToInt32(cbbModal.Tag) + 1);
-                nNum.Tag = null;
                 txtPurchase.Text = string.Empty;
                 txtSale.Text = string.Empty;
                 cbbWare.Text = string.Empty;
@@ -249,9 +248,9 @@ namespace AdvtechManagementSystem
 
                     tssStatus.Text = "添加数据成功。";
                     time.Start();
-                    return;
                 }
-
+                return;
+            }
                 DataTable updatedt = CargoinfoOperate.updateCargoinfo(data);
                 if (updatedt.HasErrors)
                 {
@@ -270,7 +269,8 @@ namespace AdvtechManagementSystem
 
                 tssStatus.Text = "更新数据成功。";
                 time.Start();
-            }
+            nNum.Value = 0;
+            cbbModal_SelectedValueChanged(sender, e);//重新加载
         }
         /// <summary>
         /// 扫描枪扫描数据录入SN码

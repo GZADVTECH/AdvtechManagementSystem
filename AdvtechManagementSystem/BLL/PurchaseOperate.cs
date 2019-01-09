@@ -22,12 +22,12 @@ namespace BLL
                 new SqlParameter("@purinternal",data["purinternal"]),
                 new SqlParameter("@purofficial",data["purofficial"]),
                 new SqlParameter("@purcargo",data["purcargo"]),
-                new SqlParameter("@paramount",data["paramount"]),
-                new SqlParameter("@parmatch",data["parmatch"]),
-                new SqlParameter("@parinvoice",data["parinvoice"]),
-                new SqlParameter("@partotalprice",data["partotalprice"]),
-                new SqlParameter("@partime",DateTime.Now),
-                new SqlParameter("@parremark",data["parremark"]),
+                new SqlParameter("@puramount",data["puramount"]),
+                new SqlParameter("@purmatch",data["purmatch"]),
+                new SqlParameter("@purinvoice",data["purinvoice"]),
+                new SqlParameter("@purtotalprice",data["purtotalprice"]),
+                new SqlParameter("@purtime",DateTime.Now),
+                new SqlParameter("@purremark",data["purremark"]),
             };
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_purchase", param, CommandType.StoredProcedure);
             return dt;
@@ -42,7 +42,7 @@ namespace BLL
             SqlParameter[] param =
             {
                 new SqlParameter("@purid",purchase),
-                new SqlParameter("@parstatus",true)
+                new SqlParameter("@purstatus",true)
             };
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_update_purchase", param, CommandType.StoredProcedure);
             return dt;

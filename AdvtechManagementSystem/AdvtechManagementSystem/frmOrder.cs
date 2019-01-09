@@ -57,11 +57,11 @@ namespace AdvtechManagementSystem
             data.Add("purinternal",txtInternal.Text);
             data.Add("purofficial",txtOfficial.Text);
             data.Add("purcargo",txtCargoid.Text);
-            data.Add("paramount",nNum.Value.ToString());
-            data.Add("parmatch",cbMatch.Checked.ToString());
-            data.Add("parinvoice",cbInvoice.Checked.ToString());
-            data.Add("partotalprice",txtTotal.Text);
-            data.Add("parremark", ((nNum.Tag == null ? string.Format(cbbCargo.Text + "___" + cbbModal.Text) : "") + "______") + rtbRemark.Text);
+            data.Add("puramount",nNum.Value.ToString());
+            data.Add("purmatch",cbMatch.Checked.ToString());
+            data.Add("purinvoice",cbInvoice.Checked.ToString());
+            data.Add("purtotalprice",txtTotal.Text);
+            data.Add("purremark", ((nNum.Tag == null ? string.Format(cbbCargo.Text + "___" + cbbModal.Text) : "") + "______") + rtbRemark.Text);
             dt = PurchaseOperate.insertPurchase(data);
             if (dt.HasErrors)
             {
@@ -206,6 +206,16 @@ namespace AdvtechManagementSystem
         private void rtbRemark_Enter(object sender, EventArgs e)
         {
             rtbRemark.Text = string.Empty;
+        }
+        /// <summary>
+        /// 备注控件失效时内容为提示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rtbRemark_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(rtbRemark.Text.Trim()))
+                rtbRemark.Text = "如需标注是否含税，请在此处填写（例:采购价格不含税，销售价格含税）";
         }
     }
 }

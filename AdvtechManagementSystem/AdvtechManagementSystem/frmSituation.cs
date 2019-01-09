@@ -62,7 +62,6 @@ namespace AdvtechManagementSystem
         /// <param name="e"></param>
         private void tsbSelect_Click(object sender, EventArgs e)
         {
-            
             string selecttext = tstxtStock.Text;//获取查询内容
             DataTable dt = CargoinfoOperate.selectCargoinfo(selecttext);
             if (dt.HasErrors)
@@ -70,11 +69,12 @@ namespace AdvtechManagementSystem
                 Errorinfo.errorPost("查询库存信息失败。");
                 tslStatus.Text = "查询库存信息失败，已反馈服务器，请稍后重试";
                 time.Start();
+                return;
             }
             dgvSituation.DataSource = dt;
             tslStatus.Text = "条件查询库存信息成功。";
             time.Start();
-            tslStock.Text = string.Empty;
+            tstxtStock.Text = string.Empty;
             #region 详细库存操作
             //try
             //{

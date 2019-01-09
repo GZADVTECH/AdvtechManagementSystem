@@ -66,7 +66,8 @@ namespace AdvtechManagementSystem
         {
             if (lbAuditing.SelectedValue == null) return;
             StringBuilder sb = new StringBuilder();
-            DataRow[] dr = dt.Select("purinternal=" + lbAuditing.SelectedValue.ToString());
+            //DataRow[] dr = (dt.Select("purinternal=" + lbAuditing.SelectedValue.ToString())==null?null: dt.Select("purinternal=" + lbAuditing.SelectedValue.ToString()));
+            DataRow[] dr = dt.Select("purinternal='"+ lbAuditing.SelectedValue.ToString() + "'");
             if (dr.Count() == 0) return;
                 sb.AppendLine("采购订单号：" + dr[0]["purid"].ToString());
                 sb.AppendLine("合同订单号："+dr[0]["purofficial"].ToString());
@@ -99,7 +100,7 @@ namespace AdvtechManagementSystem
 
                 string id = lbAuditing.SelectedValue.ToString();//获取ID
                 //同意与否都要写入审核信息，同意则保留采购信息将状态转为是，不同意则删除采购信息
-                DataRow[] dr = dt.Select("purinternal=" + lbAuditing.SelectedValue.ToString());
+                DataRow[] dr = dt.Select("purinternal='" + lbAuditing.SelectedValue.ToString()+"'");
                 if (dr.Count() == 0) return;
                 List<string> errordata = new List<string>();
                 foreach (DataRow item in dr)

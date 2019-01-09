@@ -9,7 +9,7 @@ create procedure pro_insert_cargoinfo
 @cargopurchase money=null,
 @cargosale money=null,
 @cargoware nvarchar(20)=null,
-@cargounit char=null,
+@cargounit char(2)=null,
 @cargotime datetime=null,
 @cargoremark nvarchar(255)=null,
 @cargostatus bit=1
@@ -30,7 +30,7 @@ create procedure pro_update_cargoinfo
 @cargopurchase money=null,
 @cargosale money=null,
 @cargoware nvarchar(20)=null,
-@cargounit char=null,
+@cargounit char(2)=null,
 @cargotime datetime=null,
 @cargoremark nvarchar(255)=null
 as

@@ -16,7 +16,7 @@ begin
 insert into warehousing values(@wareuserid,@warecargo,@warecount,@wareprice,@waretotalprice,@waretime,@wareware,@wareremark,@warestatus)
 if(@@ERROR=0)
 begin
-insert into cargoinount values(@warecargo,@warecount,GETDATE(),'Èë¿â')
+insert into cargoinout values(@warecargo,@warecount,GETDATE(),'Èë¿â')
 end
 end
 go

@@ -33,9 +33,9 @@ namespace AdvtechManagementSystem
         /// <param name="e"></param>
         private void tsbPurchase_Click(object sender, EventArgs e)
         {
-            frmPurchase purchase = new frmPurchase();
-            purchase.MdiParent = this;
-            purchase.Show();
+            frmOrder order = new frmOrder();
+            order.MdiParent = this;
+            order.Show();
         }
         /// <summary>
         /// 供应商管理

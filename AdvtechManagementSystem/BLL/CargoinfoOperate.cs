@@ -93,7 +93,7 @@ namespace BLL
                 new SqlParameter("@cargotime",DateTime.Now),
                 new SqlParameter("@cargoremark",data["cargoremark"])
             };
-            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_insert_cargoinfo", param, CommandType.StoredProcedure);
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_update_cargoinfo", param, CommandType.StoredProcedure);
             return dt;
         }
     }

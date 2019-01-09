@@ -4,17 +4,17 @@ go
 create procedure pro_insert_purchase
 @purinternal nvarchar(30)=null,
 @purofficial nvarchar(30)=null,
-@purcargo int=null,
-@paramount int=null,
-@parmatch bit=0,
-@parinvoice bit=0,
-@partotalprice money=null,
-@partime datetime=null,
-@parstatus bit=0,
-@parremark nvarchar(255)=null
+@purcargo nvarchar(20)=null,
+@puramount int=null,
+@purmatch bit=0,
+@purinvoice bit=0,
+@purtotalprice money=null,
+@purtime datetime=null,
+@purstatus bit=0,
+@purremark nvarchar(255)=null
 as
 begin
-insert into purchase values(@purinternal,@purofficial,@purcargo,@paramount,@parmatch,@parinvoice,@partotalprice,@partime,@parstatus,@parremark)
+insert into purchase values(@purinternal,@purofficial,@purcargo,@puramount,@purmatch,@purinvoice,@purtotalprice,@purtime,@purstatus,@purremark)
 end
 go
 
@@ -25,14 +25,14 @@ create procedure pro_update_purchase
 @purid int,
 @purinternal nvarchar(30)=null,
 @purofficial nvarchar(30)=null,
-@purcargo int=null,
-@paramount int=null,
-@parmatch bit=null,
-@parinvoice bit=null,
-@partotalprice money=null,
-@partime datetime=null,
-@parstatus bit=null,
-@parremark nvarchar(255)=null
+@purcargo nvarchar(20)=null,
+@puramount int=null,
+@purmatch bit=null,
+@purinvoice bit=null,
+@purtotalprice money=null,
+@purtime datetime=null,
+@purstatus bit=null,
+@purremark nvarchar(255)=null
 as
 begin
 if(@purinternal is not null)
@@ -41,20 +41,20 @@ if(@purofficial is not null)
 update purchase set purofficial=@purofficial where purid=@purid
 if(@purcargo is not null)
 update purchase set purcargo=@purcargo where purid=@purid
-if(@paramount is not null)
-update purchase set paramount=@paramount where purid=@purid
-if(@parmatch is not null)
-update purchase set parmatch=@parmatch where purid=@purid
-if(@parinvoice is not null)
-update purchase set parinvoice=@parinvoice where purid=@purid
-if(@partotalprice is not null)
-update purchase set partotalprice=@partotalprice where purid=@purid
-if(@partime is not null)
-update purchase set partime=@partime where purid=@purid
-if(@parstatus is not null)
-update purchase set parstatus=@parstatus where purid=@purid
-if(@parremark is not null)
-update purchase set parremark=@parremark where purid=@purid
+if(@puramount is not null)
+update purchase set puramount=@puramount where purid=@purid
+if(@purmatch is not null)
+update purchase set purmatch=@purmatch where purid=@purid
+if(@purinvoice is not null)
+update purchase set purinvoice=@purinvoice where purid=@purid
+if(@purtotalprice is not null)
+update purchase set purtotalprice=@purtotalprice where purid=@purid
+if(@purtime is not null)
+update purchase set purtime=@purtime where purid=@purid
+if(@purstatus is not null)
+update purchase set purstatus=@purstatus where purid=@purid
+if(@purremark is not null)
+update purchase set purremark=@purremark where purid=@purid
 end
 go
 

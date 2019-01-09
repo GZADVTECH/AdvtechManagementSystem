@@ -14,7 +14,7 @@ as
 begin
 insert into delivery values(@deluserid,@delcargo,@delamount,@delprice,@deltotalprice,@deltime,@delremark,@delstatus)
 if(@@ERROR=0)
-insert into cargoinount values(@delcargo,@delamount,GETDATE(),'³ö¿â')
+insert into cargoinout values(@delcargo,@delamount,GETDATE(),'³ö¿â')
 end
 go
 

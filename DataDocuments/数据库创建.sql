@@ -10,6 +10,8 @@ on
 	filename='E:\SelfDocument\CSharp\广州希创旺思管理系统\DataDocuments\DB_AdvtechManagementSystem.mdf'
 )
 go
+create database DB_AdvtechManagementSystem
+go
 
 use DB_AdvtechManagementSystem
 go
@@ -202,7 +204,7 @@ drop table cargoinout
 go
 create table cargoinout
 (
-	cioid int,
+	cioid nvarchar(20),
 	cioamount int,
 	ciotime datetime,
 	cioremark nvarchar(255),

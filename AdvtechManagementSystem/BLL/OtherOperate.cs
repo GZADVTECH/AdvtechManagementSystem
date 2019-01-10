@@ -19,7 +19,7 @@ namespace BLL
         {
             SqlParameter[] param =
             {
-                new SqlParameter("@serid",serid)
+                new SqlParameter("@serid",(serid==null)?null:serid)
             };
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_select_serial", param, CommandType.StoredProcedure);
             return dt;
@@ -63,14 +63,23 @@ namespace BLL
         /// 获取当月的库存情况
         /// </summary>
         /// <returns></returns>
-        public static DataTable selectmonthcargoinfo()
+        public static DataTable selectmonthcargoinfo(DateTime time)
         {
             SqlParameter[] param =
             {
-                new SqlParameter("@starttime",DateTime.Now.AddDays(1 - DateTime.Now.Day).Date),
-                new SqlParameter("@endtime",DateTime.Now.AddDays(1 - DateTime.Now.Day).Date.AddMonths(1).AddSeconds(-1))
+                new SqlParameter("@starttime",DateTime.Now.AddDays(1 - time.Day).Date),
+                new SqlParameter("@endtime",DateTime.Now.AddDays(1 - time.Day).Date.AddMonths(1).AddSeconds(-1))
             };
             DataTable dt = SQLHelper.QueryDataTable("SQL", "pro_month_cargoinfo", param, CommandType.StoredProcedure);
+            return dt;
+        }
+        /// <summary>
+        /// 查询所有的序列号操作
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable selectSerialrecord()
+        {
+            DataTable dt = SQLHelper.QueryDataTable("SQL", "select * from serialrecord", null, CommandType.Text);
             return dt;
         }
     }

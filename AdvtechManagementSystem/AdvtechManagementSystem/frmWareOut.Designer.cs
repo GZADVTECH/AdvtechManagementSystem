@@ -147,6 +147,7 @@
             this.rtbRecord.Size = new System.Drawing.Size(434, 84);
             this.rtbRecord.TabIndex = 11;
             this.rtbRecord.Text = "";
+            this.rtbRecord.TextChanged += new System.EventHandler(this.rtbRecord_TextChanged);
             // 
             // txtSnid
             // 

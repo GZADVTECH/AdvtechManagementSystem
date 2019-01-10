@@ -150,16 +150,26 @@ namespace AdvtechManagementSystem
                     txtSnid.Focus();
                     return;
                 }
-                if (SerialOperate.deleteSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text).HasErrors)
+                if (SerialOperate.selectSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text).Rows.Count > 0)
                 {
-                    rtbRecord.Text += "\n售出失败，已反馈服务器，请稍后重试。";
+                    if (SerialOperate.deleteSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text).HasErrors)
+                    {
+                        rtbRecord.Text += "\n售出失败，已反馈服务器，请稍后重试。";
+                        txtSnid.Text = string.Empty;
+                        txtSnid.Focus();
+                        return;
+                    }
+                    rtbRecord.Text += "\n售出成功，货物编号：" + cbbModal.SelectedValue.ToString() + "，SN码：" + txtSnid.Text + "。";
                     txtSnid.Text = string.Empty;
                     txtSnid.Focus();
+                }
+                else
+                {
+                    tslStatus.Text="该序列号不存在，请核实后重新输入。";
+                    time.Start();
+                    txtSnid.SelectAll();
                     return;
                 }
-                rtbRecord.Text += "\n售出成功，货物编号：" + cbbModal.SelectedValue.ToString() + "SN码：" + txtSnid.Text + "。";
-                txtSnid.Text = string.Empty;
-                txtSnid.Focus();
             }
         }
         /// <summary>
@@ -184,7 +194,7 @@ namespace AdvtechManagementSystem
             data.Add("cargoid", txtCargoid.Text);
             data.Add("cargoname", cbbName.Text);
             data.Add("cargomodal", cbbModal.Text);
-            data.Add("cargoamount", (Convert.ToInt32(nNum.Value) - Convert.ToInt32(nNum.Tag == null ? 0 : nNum.Tag)).ToString());//修改时增加数量而不是修改数量
+            data.Add("cargoamount", (Convert.ToInt32(nNum.Tag == null ? 0 : nNum.Tag) - Convert.ToInt32(nNum.Value)).ToString());//修改时增加数量而不是修改数量
             data.Add("cargopurchase", txtPurchase.Text);
             data.Add("cargosale", txtSale.Text);
             data.Add("cargoware", cbbWare.Text);
@@ -199,8 +209,8 @@ namespace AdvtechManagementSystem
             deliverydata.Add("deltotalprice", Convert.ToString(Convert.ToDecimal(txtPurchase.Text) * Convert.ToDecimal(nNum.Value)));
             deliverydata.Add("delremark", rtbRemark.Text);
 
-            DataTable dt = DeliveryOperate.insertDelivery(deliverydata);
-            if (dt.HasErrors)
+            DataTable dtDelivery = DeliveryOperate.insertDelivery(deliverydata);
+            if (dtDelivery.HasErrors)
             {
                 Errorinfo.errorPost("出库数据添加失败。");
                 tslStatus.Text = "出库数据添加失败，已反馈服务器，请稍后重试。";
@@ -219,6 +229,10 @@ namespace AdvtechManagementSystem
 
             tslStatus.Text = "出库信息添加成功。";
             time.Start();
+            nNum.Value = 0;
+
+            dt = CargoinfoOperate.selectCargoinfo(cbbName.Text);//重新加载
+            cbbModal_SelectedValueChanged(sender, e);//重新加载
         }
         /// <summary>
         /// 默认加载
@@ -252,6 +266,14 @@ namespace AdvtechManagementSystem
         private void rtbRemark_Enter(object sender, EventArgs e)
         {
             rtbRemark.Text = string.Empty;
+        }
+
+        private void rtbRecord_TextChanged(object sender, EventArgs e)
+        {
+
+            rtbRecord.SelectionStart = rtbRecord.Text.Length;
+            rtbRecord.SelectionLength = 0;
+            rtbRecord.Focus();
         }
     }
 }

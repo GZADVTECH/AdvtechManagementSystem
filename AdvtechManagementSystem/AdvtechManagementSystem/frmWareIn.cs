@@ -270,6 +270,8 @@ namespace AdvtechManagementSystem
                 tssStatus.Text = "更新数据成功。";
                 time.Start();
             nNum.Value = 0;
+
+            dt = CargoinfoOperate.selectCargoinfo(cbbName.Text);//重新加载
             cbbModal_SelectedValueChanged(sender, e);//重新加载
         }
         /// <summary>
@@ -279,26 +281,47 @@ namespace AdvtechManagementSystem
         /// <param name="e"></param>
         private void txtSnid_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar==13)
+            if (e.KeyChar == 13)
             {
-                if (cbbModal.SelectedValue==null)
+                if (cbbModal.SelectedValue == null)
                 {
                     rtbRecord.Text += "\n请在货物信息中选择添加SN码的货物信息。";
                     txtSnid.Text = string.Empty;
                     txtSnid.Focus();
                     return;
                 }
-                if (SerialOperate.insertSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text, "").HasErrors)
+                if (!(SerialOperate.selectSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text).Rows.Count > 0))
                 {
-                    rtbRecord.Text += "\n添加失败，已反馈服务器，请稍后重试。";
+                    if (SerialOperate.insertSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text, "").HasErrors)
+                    {
+                        rtbRecord.Text += "\n添加失败，已反馈服务器，请稍后重试。";
+                        txtSnid.Text = string.Empty;
+                        txtSnid.Focus();
+                        return;
+                    }
+                    rtbRecord.Text += "\n添加成功，货物编号：" + cbbModal.SelectedValue.ToString() + ",SN码：" + txtSnid.Text + "。";
                     txtSnid.Text = string.Empty;
                     txtSnid.Focus();
+                }
+                else
+                {
+                    tssStatus.Text = "该序列号已存在，请核实后重新输入。";
+                    time.Start();
+                    txtSnid.SelectAll();
                     return;
                 }
-                    rtbRecord.Text += "\n添加成功，货物编号：" + cbbModal.SelectedValue.ToString() + "SN码：" + txtSnid.Text+"。";
-                txtSnid.Text = string.Empty;
-                txtSnid.Focus();
             }
+        }
+        /// <summary>
+        /// 一直处于最下端
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rtbRecord_TextChanged(object sender, EventArgs e)
+        {
+            rtbRecord.SelectionStart = rtbRecord.Text.Length;
+            rtbRecord.SelectionLength = 0;
+            rtbRecord.Focus();
         }
     }
 }

@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReports));
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dtpTime = new System.Windows.Forms.DateTimePicker();
             this.dgvMonth = new System.Windows.Forms.DataGridView();
             this.cCargoid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCargoname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,27 +44,73 @@
             this.cUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnOut = new System.Windows.Forms.Button();
+            this.lModal = new System.Windows.Forms.Label();
+            this.lName = new System.Windows.Forms.Label();
+            this.cbbName = new System.Windows.Forms.ComboBox();
+            this.cbbModal = new System.Windows.Forms.ComboBox();
+            this.btnSnidSelect = new System.Windows.Forms.Button();
+            this.lbSer = new System.Windows.Forms.ListBox();
+            this.dgvSer = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSer)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // tabControl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "当月库存情况";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(982, 693);
+            this.tabControl1.TabIndex = 0;
             // 
-            // button1
+            // tabPage1
             // 
-            this.button1.Location = new System.Drawing.Point(885, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "导出到Excel";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tabPage1.Controls.Add(this.dtpTime);
+            this.tabPage1.Controls.Add(this.dgvMonth);
+            this.tabPage1.Controls.Add(this.btnSelect);
+            this.tabPage1.Controls.Add(this.btnOut);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(974, 667);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "月库存情况";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dgvSer);
+            this.tabPage2.Controls.Add(this.lbSer);
+            this.tabPage2.Controls.Add(this.btnSnidSelect);
+            this.tabPage2.Controls.Add(this.cbbModal);
+            this.tabPage2.Controls.Add(this.cbbName);
+            this.tabPage2.Controls.Add(this.lName);
+            this.tabPage2.Controls.Add(this.lModal);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(974, 667);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "序列号查询";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dtpTime
+            // 
+            this.dtpTime.CustomFormat = "";
+            this.dtpTime.Location = new System.Drawing.Point(6, 11);
+            this.dtpTime.Name = "dtpTime";
+            this.dtpTime.Size = new System.Drawing.Size(200, 21);
+            this.dtpTime.TabIndex = 8;
             // 
             // dgvMonth
             // 
@@ -80,12 +128,12 @@
             this.cUnit,
             this.cTime,
             this.cRemark});
-            this.dgvMonth.Location = new System.Drawing.Point(13, 41);
+            this.dgvMonth.Location = new System.Drawing.Point(0, 39);
             this.dgvMonth.Name = "dgvMonth";
             this.dgvMonth.ReadOnly = true;
             this.dgvMonth.RowTemplate.Height = 23;
-            this.dgvMonth.Size = new System.Drawing.Size(981, 664);
-            this.dgvMonth.TabIndex = 2;
+            this.dgvMonth.Size = new System.Drawing.Size(974, 628);
+            this.dgvMonth.TabIndex = 7;
             // 
             // cCargoid
             // 
@@ -157,30 +205,150 @@
             this.cRemark.Name = "cRemark";
             this.cRemark.ReadOnly = true;
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(212, 11);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(84, 23);
+            this.btnSelect.TabIndex = 5;
+            this.btnSelect.Text = "查询";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            // 
+            // btnOut
+            // 
+            this.btnOut.Location = new System.Drawing.Point(859, 9);
+            this.btnOut.Name = "btnOut";
+            this.btnOut.Size = new System.Drawing.Size(109, 23);
+            this.btnOut.TabIndex = 6;
+            this.btnOut.Text = "导出到Excel";
+            this.btnOut.UseVisualStyleBackColor = true;
+            // 
+            // lModal
+            // 
+            this.lModal.AutoSize = true;
+            this.lModal.Location = new System.Drawing.Point(16, 37);
+            this.lModal.Name = "lModal";
+            this.lModal.Size = new System.Drawing.Size(41, 12);
+            this.lModal.TabIndex = 18;
+            this.lModal.Text = "型号：";
+            // 
+            // lName
+            // 
+            this.lName.AutoSize = true;
+            this.lName.Location = new System.Drawing.Point(16, 10);
+            this.lName.Name = "lName";
+            this.lName.Size = new System.Drawing.Size(41, 12);
+            this.lName.TabIndex = 19;
+            this.lName.Text = "名称：";
+            // 
+            // cbbName
+            // 
+            this.cbbName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbName.FormattingEnabled = true;
+            this.cbbName.Location = new System.Drawing.Point(73, 7);
+            this.cbbName.Name = "cbbName";
+            this.cbbName.Size = new System.Drawing.Size(180, 20);
+            this.cbbName.TabIndex = 14;
+            this.cbbName.SelectedValueChanged += new System.EventHandler(this.cbbName_SelectedValueChanged);
+            // 
+            // cbbModal
+            // 
+            this.cbbModal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbModal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbModal.FormattingEnabled = true;
+            this.cbbModal.Location = new System.Drawing.Point(73, 33);
+            this.cbbModal.Name = "cbbModal";
+            this.cbbModal.Size = new System.Drawing.Size(180, 20);
+            this.cbbModal.TabIndex = 15;
+            this.cbbModal.SelectedValueChanged += new System.EventHandler(this.cbbModal_SelectedValueChanged);
+            // 
+            // btnSnidSelect
+            // 
+            this.btnSnidSelect.Location = new System.Drawing.Point(276, 20);
+            this.btnSnidSelect.Name = "btnSnidSelect";
+            this.btnSnidSelect.Size = new System.Drawing.Size(94, 23);
+            this.btnSnidSelect.TabIndex = 20;
+            this.btnSnidSelect.Text = "查询";
+            this.btnSnidSelect.UseVisualStyleBackColor = true;
+            this.btnSnidSelect.Click += new System.EventHandler(this.btnSnidSelect_Click);
+            // 
+            // lbSer
+            // 
+            this.lbSer.FormattingEnabled = true;
+            this.lbSer.ItemHeight = 12;
+            this.lbSer.Location = new System.Drawing.Point(18, 66);
+            this.lbSer.Name = "lbSer";
+            this.lbSer.Size = new System.Drawing.Size(352, 592);
+            this.lbSer.TabIndex = 21;
+            // 
+            // dgvSer
+            // 
+            this.dgvSer.AllowUserToAddRows = false;
+            this.dgvSer.AllowUserToDeleteRows = false;
+            this.dgvSer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dgvSer.Location = new System.Drawing.Point(410, 7);
+            this.dgvSer.Name = "dgvSer";
+            this.dgvSer.ReadOnly = true;
+            this.dgvSer.RowTemplate.Height = 23;
+            this.dgvSer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSer.Size = new System.Drawing.Size(558, 651);
+            this.dgvSer.TabIndex = 22;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "srserial";
+            this.Column1.HeaderText = "序列号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 200;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "srstatus";
+            this.Column2.HeaderText = "操作";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "srtime";
+            this.Column3.HeaderText = "时间";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 215;
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 717);
-            this.Controls.Add(this.dgvMonth);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmReports";
             this.Text = "报表查看";
             this.Load += new System.EventHandler(this.frmReports_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSer)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DateTimePicker dtpTime;
         private System.Windows.Forms.DataGridView dgvMonth;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCargoid;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCargoname;
@@ -192,5 +360,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn cRemark;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnOut;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnSnidSelect;
+        private System.Windows.Forms.ComboBox cbbModal;
+        private System.Windows.Forms.ComboBox cbbName;
+        private System.Windows.Forms.Label lName;
+        private System.Windows.Forms.Label lModal;
+        private System.Windows.Forms.ListBox lbSer;
+        private System.Windows.Forms.DataGridView dgvSer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

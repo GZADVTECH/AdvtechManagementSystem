@@ -2,4 +2,3 @@ E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\MO
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\MODEL\bin\Debug\MODEL.pdb
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\MODEL\obj\Debug\MODEL.dll
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\MODEL\obj\Debug\MODEL.pdb
-E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\MODEL\obj\Debug\MODEL.csprojResolveAssemblyReference.cache

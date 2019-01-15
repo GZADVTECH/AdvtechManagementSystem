@@ -283,14 +283,15 @@ namespace AdvtechManagementSystem
         {
             if (e.KeyChar == 13)
             {
-                if (cbbModal.SelectedValue == null)
+                if ((CargoinfoOperate.selectCargoinfo(txtCargoid.Text)).Rows.Count<=0)
                 {
                     rtbRecord.Text += "\n请在货物信息中选择添加SN码的货物信息。";
                     txtSnid.Text = string.Empty;
                     txtSnid.Focus();
                     return;
                 }
-                if (!(SerialOperate.selectSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text).Rows.Count > 0))
+
+                if (SerialOperate.selectSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text) == 0)
                 {
                     if (SerialOperate.insertSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text, "").HasErrors)
                     {

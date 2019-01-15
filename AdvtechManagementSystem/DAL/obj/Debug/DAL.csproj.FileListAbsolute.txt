@@ -5,3 +5,10 @@ E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DA
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DAL\obj\Debug\DAL.pdb
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DAL\bin\Debug\MODEL.dll
 E:\SelfDocument\CSharp\广州希创旺思管理系统\AdvtechManagementSystem\DAL\bin\Debug\MODEL.pdb
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\bin\Debug\DAL.dll
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\bin\Debug\DAL.pdb
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\bin\Debug\MODEL.dll
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\bin\Debug\MODEL.pdb
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\obj\Debug\DAL.dll
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\obj\Debug\DAL.pdb

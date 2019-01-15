@@ -1,0 +1,7 @@
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\bin\Release\DAL.dll
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\bin\Release\DAL.pdb
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\bin\Release\MODEL.dll
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\bin\Release\MODEL.pdb
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\obj\Release\DAL.dll
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\DAL\obj\Release\DAL.pdb

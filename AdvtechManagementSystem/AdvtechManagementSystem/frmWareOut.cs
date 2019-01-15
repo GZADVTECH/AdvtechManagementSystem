@@ -150,7 +150,7 @@ namespace AdvtechManagementSystem
                     txtSnid.Focus();
                     return;
                 }
-                if (SerialOperate.selectSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text).Rows.Count > 0)
+                if (SerialOperate.selectSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text) == 0)
                 {
                     if (SerialOperate.deleteSerial(cbbModal.SelectedValue.ToString(), txtSnid.Text).HasErrors)
                     {

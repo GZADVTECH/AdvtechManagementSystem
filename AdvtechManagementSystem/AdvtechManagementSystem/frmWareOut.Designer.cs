@@ -144,6 +144,7 @@
             // 
             this.rtbRecord.Location = new System.Drawing.Point(67, 49);
             this.rtbRecord.Name = "rtbRecord";
+            this.rtbRecord.ReadOnly = true;
             this.rtbRecord.Size = new System.Drawing.Size(434, 84);
             this.rtbRecord.TabIndex = 11;
             this.rtbRecord.Text = "";
@@ -151,6 +152,7 @@
             // 
             // txtSnid
             // 
+            this.txtSnid.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.txtSnid.Location = new System.Drawing.Point(67, 22);
             this.txtSnid.Name = "txtSnid";
             this.txtSnid.Size = new System.Drawing.Size(434, 21);

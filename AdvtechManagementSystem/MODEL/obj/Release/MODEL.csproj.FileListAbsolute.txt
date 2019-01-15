@@ -1,0 +1,4 @@
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\MODEL\bin\Release\MODEL.dll
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\MODEL\bin\Release\MODEL.pdb
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\MODEL\obj\Release\MODEL.dll
+C:\Users\66424\Desktop\AdvtechManagementSystem-master\AdvtechManagementSystem\MODEL\obj\Release\MODEL.pdb

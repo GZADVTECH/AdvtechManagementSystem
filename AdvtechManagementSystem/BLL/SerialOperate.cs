@@ -16,14 +16,14 @@ namespace BLL
         /// <param name="serid"></param>
         /// <param name="sersnid"></param>
         /// <returns></returns>
-        public static DataTable selectSerial(string serid,string sersnid)
+        public static int selectSerial(string serid,string sersnid)
         {
             SqlParameter[] param =
             {
                 new SqlParameter("@serid",serid),
                 new SqlParameter("@sersnid",sersnid),
             };
-            DataTable dt = SQLHelper.QueryDataTable("SQL", "select count(*) from serial where serid=@serid and sersnid=@sersnid", param, CommandType.Text);
+            int dt = Convert.ToInt32(SQLHelper.QueryScalar("SQL", "select count(*) from serial where serid=@serid and sersnid=@sersnid", param, CommandType.Text));
             return dt;
         } 
         /// <summary>
